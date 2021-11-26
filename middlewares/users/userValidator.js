@@ -34,6 +34,16 @@ const signUpValidators = [
     .withMessage(
       "Password must be at least 8 characters long & should contain at least 1 lowercase, 1 uppercase, 1 number & 1 symbol"
     ),
+  check("confirmPassword")
+    .isStrongPassword()
+    .withMessage(
+      "Password must be at least 8 characters long & should contain at least 1 lowercase, 1 uppercase, 1 number & 1 symbol"
+    )
+    .custom(async (confirmPassword, { req }) => {
+      if (confirmPassword != req.body.password) {
+        throw createError("Password and confirm password does not match!");
+      }
+    }),
 ];
 
 const signUpValidatorHandler = (req, res, next) => {
@@ -43,7 +53,10 @@ const signUpValidatorHandler = (req, res, next) => {
     // no errors
     next();
   } else {
-    res.status(500).json({
+    // res.status(500).json({
+    //   errors: mappedErrors,
+    // });
+    res.render("register", {
       errors: mappedErrors,
     });
   }

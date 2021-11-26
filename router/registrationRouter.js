@@ -17,6 +17,12 @@ const {
 router.get("/", decorateHtmlResponse("Registration"), getRegistration);
 
 // post
-router.post("/", signUpValidators, signUpValidatorHandler, userRegistration);
+router.post(
+  "/",
+  decorateHtmlResponse("Registration"),
+  signUpValidators,
+  signUpValidatorHandler,
+  userRegistration
+);
 
 module.exports = router;

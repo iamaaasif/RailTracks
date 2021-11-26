@@ -38,7 +38,7 @@ async function userRegistration(req, res, next) {
     });
   } catch (err) {
     console.log(err);
-    res.status(500).json({
+    res.render("register", {
       errors: {
         common: {
           msg: "Unknown error occured!",
