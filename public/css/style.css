@@ -5,6 +5,7 @@ body {
   font-family: "Muli", sans-serif;
 }
 
+
 .bg-image {
   background-image: url(../images/home/bg_img.jpg);
   background-repeat: no-repeat;
@@ -47,10 +48,14 @@ body {
 }
 
 
-
+.btn-5{
+  color: black;
+  font-weight: bold;
+}
 
 
 footer {
+  background-color: #000;
   margin-top: 20px;
   text-align: center;
 }
@@ -151,9 +156,11 @@ textarea.form-control {
 .form-control .advance-search {
   color: #fff;
 }
-
+.bg-199{
+  background-color: #166198;
+}
 .bg-light {
-  background: #fff;
+  background: #f6f6f7;
 }
 
 .bg-gray {
@@ -172,12 +179,14 @@ textarea.form-control {
 
 .navigation .navbar-nav {
   text-align: center;
+  
 }
 
 .login-button {
   border: 2px solid #dedede;
   margin-right: 8px;
   padding: 6px 20px !important;
+  font-weight: bold;
 }
 
 @media (max-width: 400px) {
@@ -185,6 +194,7 @@ textarea.form-control {
     display: inline-block;
     padding: 6px 45px !important;
     margin: 5px 0;
+    font-weight: bold;
   }
 }
 
@@ -193,6 +203,7 @@ textarea.form-control {
     display: inline-block;
     padding: 6px 45px !important;
     margin: 5px 0;
+    font-weight: bold;
   }
 }
 
@@ -201,6 +212,7 @@ textarea.form-control {
     display: inline-block;
     padding: 6px 45px !important;
     margin: 5px 0;
+    font-weight: bold;
   }
 }
 
@@ -209,6 +221,7 @@ textarea.form-control {
     display: inline-block;
     padding: 6px 45px !important;
     margin: 5px 0;
+    font-weight: bold;
   }
 }
 
@@ -217,10 +230,11 @@ textarea.form-control {
   color: #fff;
   padding: 8px 20px !important;
   display: inline-block;
+  font-weight: bold;
 }
 
 .add-button:hover {
-  color: #fff;
+  color: rgb(139, 139, 139);
 }
 
 

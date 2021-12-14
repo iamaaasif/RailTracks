@@ -40,11 +40,11 @@
 
   </head>
 
-  <body class="bg-dark">
+  <body class="bg-199">
 
    
     <!-- Nav bar -->
-    <section>
+    <section class="nav-header">
       <nav
         id="navtop"
         class="
@@ -77,10 +77,12 @@
                 aria-current="page"
                 >Home</a
               >
-              <a href="#" class="nav-item nav-link">Profile(<%= loggedInUser.lastName %> )</a>
-              <a href="#" class="nav-item nav-link">Messages</a>
-              <a href="#" class="nav-item nav-link">Blogs</a>
-              <a href="#" onclick="logout()" class="nav-item nav-link">Log Out</a>
+              <!-- <a href="#" class="btn-5 nav-item nav-link" style="color:black;">Profile(<%= loggedInUser.lastName %> )</a> -->
+              
+              <a href="#" class="btn-5 nav-item nav-link" style="color:black;" ><%= loggedInUser.lastName %> </a>
+              <a href="#" class="btn-5 nav-item nav-link" style="color:black;">Messages</a>
+              <a href="#" class="btn-5 nav-item nav-link" style="color:black;">Blogs</a>
+              <a href="#" onclick="logout()" class="btn-5 nav-item nav-link" style="color:black;">Log Out</a>
               <% } else { %>
               <a class="nav-link login-button" href="/login"
                 >Offer Mentorship</a
@@ -150,65 +152,35 @@
     </div>
   </section>
   <!-- extra - kono kamer nah.. ken use korchi nijeo jani nah, but kam korteche -->
-  <div style="margin-top: 76px"></div>
+  <!-- <div style="margin-top: 10px"></div> -->
   <!-- extra - end -->
-  <p>Hello,  Welcome to RailTracks. </p>
-  <p>
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quasi voluptate
-    nemo amet ratione, doloremque nam et illum voluptatum consequuntur esse
-    omnis odit delectus labore. Eos incidunt quidem, nisi eligendi accusamus
-    aspernatur? Eius sapiente tempora nobis exercitationem omnis deserunt eum
-    repellat adipisci, quo quidem doloribus delectus labore. Dolores
-    perspiciatis nisi doloremque architecto consequatur. Distinctio aperiam
-    similique nesciunt, officiis suscipit magni veniam praesentium
-    accusantium, inventore aliquam earum quos nulla? Consectetur, illum
-    nesciunt nihil sequi harum esse cupiditate nostrum asperiores praesentium
-    quos earum nam ex dolor deserunt nemo ducimus aspernatur adipisci aliquam
-    vero repellendus excepturi? Officia dicta earum assumenda nemo esse
-    dolores ex temporibus id ullam quae animi sapiente eum doloremque placeat
-    totam delectus, architecto eaque, magni nam? In explicabo tempore magnam
-    assumenda modi aut, nisi, eveniet odit qui itaque recusandae tenetur
-    blanditiis voluptatum doloremque rem facilis corporis nostrum veniam
-    accusamus ratione quae doloribus omnis? Illo provident maiores deleniti
-    iusto! Quibusdam, incidunt quaerat suscipit adipisci excepturi maxime,
-    eaque esse sit corporis dolore consectetur sunt magnam nemo exercitationem
-    tempore saepe enim animi. Nesciunt, molestias ex nemo doloribus velit
-    doloremque tenetur error? Natus placeat nostrum, quibusdam aspernatur
-    eaque, magnam, eos dicta doloribus voluptatibus iusto magni consectetur.
-    Consequatur ad similique iusto ab! Veniam, corporis quaerat nihil optio
-    porro eligendi ducimus minima deleniti ab, molestiae aut praesentium alias
-    dignissimos! Dignissimos, omnis. Doloremque aspernatur, recusandae amet
-    sequi ullam reiciendis sit cumque exercitationem est quae maxime? Harum,
-    illum eius odio dignissimos deserunt nam quaerat, modi ipsa asperiores
-    cumque cupiditate facere porro? Reprehenderit excepturi necessitatibus
-    esse nesciunt? Est laudantium quo quam delectus. Quaerat ut odio delectus
-    facere aliquam animi nostrum aut itaque laboriosam provident, labore, quas
-    eveniet quibusdam optio, ipsam fuga dignissimos suscipit consequuntur odit
-    commodi voluptatibus reiciendis! Delectus, magnam quo nesciunt quasi minus
-    adipisci amet ex eos labore a accusantium harum porro corporis error
-    minima illum ad molestiae. Quidem, voluptas incidunt quisquam autem odio
-    fugiat nihil dicta perspiciatis quas, inventore, ratione nemo. Ad hic
-    cupiditate ipsa facere ea? Aliquam ad rerum ut itaque neque eos iure nulla
-    doloribus ullam perspiciatis, quod repudiandae aperiam natus nemo
-    temporibus aut saepe aspernatur qui illum necessitatibus voluptatem vero.
-    At laboriosam ipsum consectetur ipsam nostrum earum, pariatur delectus
-    corrupti nesciunt voluptas. Ducimus ad beatae velit necessitatibus labore
-    aliquam illo, accusantium odio ab amet eaque ut sed consectetur
-    repellendus molestias suscipit? Laboriosam recusandae odit aliquam velit
-    officia repellendus nemo totam minus quod quibusdam? Reiciendis, dolorum
-    quos aut animi veritatis fugit nulla rem ipsa iste perferendis dicta,
-    voluptatibus excepturi provident magni non minima? Corporis obcaecati
-    molestias, neque magni corrupti omnis dicta in magnam doloremque facilis
-    voluptates alias quidem aliquid sint, consequuntur, aperiam eos
-    consequatur animi consectetur error quasi distinctio eum repudiandae! Cum
-    unde quidem molestias dignissimos, dolore impedit explicabo debitis amet
-    sint voluptatibus expedita officia iure enim quas ipsum beatae, architecto
-    accusantium placeat autem perspiciatis minus nam aspernatur ut. Sed iste
-    nulla atque, eligendi unde deserunt animi voluptas harum ullam minima,
-    distinctio cum similique excepturi optio quaerat repudiandae ratione,
-    tempore quam doloribus accusamus quasi. Laborum ullam architecto ad odit
-    placeat voluptas a culpa neque inventore ratione?
-  </p>
+
+  <section style="padding:30px;color: #ffffff; text-align: center;">
+    <div class=""><h2 style="color: #ffffff;  font-weight: bold;">Share Your Experience – be a Mentor! </h2></div>
+    <p style="color: #ffffff; text-align: center;">Being a RailTracks mentor doesn’t require a significant time commitment and you can make a real difference for a young person who is just getting started. RailTracks mentors meet with their students via teleconference on a regular schedule for one-hour sessions. Mentors encourage open discussion with their students to help them get the most from the program and share their own experiences with career exploration, job searching, and professional development.</p>
+  </section>
+
+  <section style="padding:0px 30px 30px 30px; color: #ffffff; text-align:center;">
+    <div>
+      <h2 style="color: #ffffff;  font-weight: bold;">Why You Should be a Mentor</h2>  
+    </div>
+    <p style="color: #ffffff;">
+      When you’re a mentor, you learn along with your student. RailTracks job skills can be used throughout a career and they are designed to create new opportunities.
+
+RailTracks mentors help build a student’s self-confidence, and help them see a career path they didn’t know was possible.
+
+The RailTracks mentorship program is also a valuable cultural and educational experience for mentors to learn and grow professionally and personally. As a mentor, you expand your ability to train and lead others, increase your cultural competency through conversation with a student from a different culture, increase your ability to form professional relationships with international colleagues and companies, and overall feel a sense of accomplishment after completing the program.
+    </p>
+  </section>
+  
+  <section style="padding:0px 30px 30px 30px; color: #ffffff; text-align:center;">
+    <div>
+      <h2 style="color: #ffffff; font-weight: bold;">Looking for a mentor?</h2>  
+    </div>
+    <p style="color: #ffffff;">
+      Are you a parent, guardian, teacher, or caring adult to a young person who you feel could benefit from a mentor? Or are you a young person who wants to connect with a mentor? Mentors are supportive individuals who build relationships with young people by offering them guidance, support, and encouragement to help cultivate positive and healthy development – many of the same things you do. Mentors are not meant to replace parents, guardians, or teachers, or to play the role of disciplinarians or decision makers. Rather, they become part of a team of caring adults to that young person. Mentors can help encourage positive choices, promote high self-esteem, support academic achievement and introduce new ideas.    </p>
+  </section>
+  
   <footer id="sticky-footer" class="flex-shrink-0 py-2 text-white">
     <div class="container text-center">
       <small>Copyright &copy; RailTracks</small>
