@@ -27,6 +27,14 @@ router.get(
   checkLoginForLandingPage,
   getLandingPage
 );
+
+// router.get("/blogs", decorateHtmlResponse("Blogs"), getBlogPage);
+// router.get(
+//   "/createBlog",
+//   decorateHtmlResponse("CreateBlog"),
+//   getCreateBlogPage
+// );
+// router.get("/viewBlog", decorateHtmlResponse("viewBlog"), getViewBlog);
 // logout
 router.delete("/", logout);
 module.exports = router;

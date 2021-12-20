@@ -18,14 +18,14 @@
       crossorigin="anonymous"
     ></script>
 
-    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css" />
 
     <link
-      href="plugins/font-awesome/css/font-awesome.min.css"
+      href="/plugins/font-awesome/css/font-awesome.min.css"
       rel="stylesheet"
     />
 
-    <link href="css/style.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
 <script>
   //  window.location.replace("/");
    function logout() {
@@ -40,11 +40,11 @@
 
   </head>
 
-  <body class="bg-blue">
+  <body>
 
    
     <!-- Nav bar -->
-    <section class="nav-header">
+     <section class="nav-header">
       <nav
         id="navtop"
         class="
@@ -57,7 +57,7 @@
       >
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
-            <img src="images/logo.png" alt="RailTracks" />
+            <img src="/images/logo.png" alt="RailTracks" />
           </a>
           <button
             type="button"
@@ -78,7 +78,7 @@
                 >Home</a
               >
               
-              <a href="#" class="btn-5 nav-item nav-link" style="color:black;" ><%= loggedInUser.firstName %>  <%= loggedInUser.lastName %> </a>
+              <a href="/profile" class="btn-5 nav-item nav-link" style="color:black;" ><%= loggedInUser.firstName %>  <%= loggedInUser.lastName %> </a>
               <a href="#" class="btn-5 nav-item nav-link" style="color:black;">Messages</a>
               <a href="#" class="btn-5 nav-item nav-link" style="color:black;">Blogs</a>
               <a href="#" onclick="logout()" class="btn-5 nav-item nav-link" style="color:black;">Log Out</a>
@@ -94,5 +94,45 @@
         </div>
       </nav>
     </section>
-  
-    <!-- nav bar end -->
+    
+
+    <section class="create-blog" style="margin-top: 85px;">
+      <form class="blog-form">
+        <input type="text" name="" id="" placeholder="Enter Blog title">
+        <button class="blog-img-button">Choose background</button>
+        <textarea placeholder="Enter blog content"></textarea>
+        <input type="submit" value="Submit">
+      </form>
+
+    </section>
+    <p>ajflfjlfljfj</p>
+<%= loggedInUser.email %> 
+
+    <footer id="sticky-footer" class="flex-shrink-0 py-2 text-white">
+      <div class="container text-center">
+        <small>Copyright &copy; RailTracks</small>
+      </div>
+    </footer>
+
+  <script>
+    /// on scrolling nav bar padding reduce
+    window.onscroll = function () {
+      scrollFunction();
+    };
+
+    function scrollFunction() {
+      if (
+        document.body.scrollTop > 80 ||
+        document.documentElement.scrollTop > 80
+      ) {
+        document.getElementById("navtop").style.padding = "2px 2px";
+      } else {
+        document.getElementById("navtop").style.padding = "20px 20px";
+      }
+    }
+  </script>
+
+  <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+
+  </html>

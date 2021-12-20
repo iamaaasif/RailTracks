@@ -156,7 +156,7 @@ textarea.form-control {
 .form-control .advance-search {
   color: #fff;
 }
-.bg-199{
+.bg-blue{
   background-color: #166198;
 }
 .bg-light {
@@ -319,6 +319,86 @@ textarea.form-control {
 
 form textarea {
   height: 200px;
+}
+
+
+
+/* Blogs area */
+.blogs {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+.blogs-main {
+  margin-top: 20px;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr;
+}
+.blogs-side {
+  margin-top: 200px;
+  text-align: center;
+}
+.blog {
+  background-color: #F4F7F7;
+  padding: 20px;
+}
+.blog h3 {
+  font-size: 10px;
+}
+.blog h1 {
+  font-size: 20px;
+}
+.blog img {
+  max-width: 100%;
+  height: auto;
+}
+
+.create-blog {
+  width: 80%;
+  margin: 0 auto;
+}
+.blog-form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+}
+input[type=text] {
+  padding: 15px;
+  margin: 20px 0;
+}
+textarea {
+  resize: none;
+  padding: 30px;
+  margin: 20px 0;
+
+}
+input[type=submit] {
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+}
+.blog-img-button {
+  padding: 15px;
+  width: 30%;
+  border: none;
+}
+
+.view-blog {
+  width: 80%;
+  margin: 0 auto;
+}
+.view-blog h1 {
+  margin-top: 200px;
+  margin-bottom: 50px;
+}
+.view-blog img {
+  max-width: 50%;
+  height: auto;
+  margin-left: 250px;
+  margin-top: 30px;
 }
 
 
