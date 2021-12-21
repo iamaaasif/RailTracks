@@ -24,7 +24,7 @@ const blogSchema = mongoose.Schema(
     },
     thumbnail: {
       type: String,
-      required: true,
+      default: "no-img.jpg",
     },
   },
   {
