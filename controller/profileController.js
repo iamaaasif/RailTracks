@@ -1,6 +1,7 @@
 // internal imports
 const User = require("../models/user");
 const Mentor = require("../models/mentor");
+const Blog = require("../models/blog");
 
 function getProfilePage(req, res, next) {
   res.render("profile");
@@ -13,6 +14,40 @@ function getEditProfilePage(req, res, next) {
 
 async function profile_data(req, res, next) {
   const username = req.params.username;
+  const { firstName, lastName, profile_picture } = await User.findOne({
+    username: username,
+  });
+  const {
+    twitter,
+    linkedin,
+    emp_company,
+    emp_role,
+    phone,
+    email,
+    about,
+    skills,
+    isAvailable,
+  } = await Mentor.findOne({ username: username });
+  const lastestBlog = await Blog.findOne({ author_name: username });
+
+  const result = {
+    username,
+    firstName,
+    lastName,
+    profile_picture,
+    twitter,
+    linkedin,
+    emp_company,
+    emp_role,
+    phone,
+    email,
+    about,
+    skills,
+    isAvailable,
+    lastestBlog,
+  };
+
+  res.json(result);
 }
 
 async function editProfile(req, res, next) {

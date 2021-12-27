@@ -42,6 +42,7 @@ const mentorSchema = mongoose.Schema(
     isAvailable: {
       type: Boolean,
       default: false,
+      required: true,
     },
   },
   {

@@ -73,8 +73,7 @@ async function createBlog(req, res, next) {
           Date.now(),
         title: req.body.title,
         text: req.body.text,
-        author_name: req.body.author_name,
-        author_email: req.body.author_email,
+        author_username: req.body.author_username,
         thumbnail: req.files[0].filename,
       });
     } else {
@@ -89,8 +88,7 @@ async function createBlog(req, res, next) {
           Date.now(),
         title: req.body.title,
         text: req.body.text,
-        author_name: req.body.author_name,
-        author_email: req.body.author_email,
+        author_username: req.body.author_username,
       });
     }
 

@@ -47,7 +47,7 @@ router.get(
 );
 
 router.get(
-  "/user/:username",
+  "/author/:username",
   decorateHtmlResponse("viewBlog"),
   checkLoginForLandingPage,
   getMyBlogsPage

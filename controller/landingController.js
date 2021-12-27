@@ -1,4 +1,5 @@
 const User = require("../models/user");
+const Mentor = require("../models/mentor");
 
 function getLandingPage(req, res, next) {
   res.render("index");
@@ -14,9 +15,28 @@ async function searchResult(req, res, next) {
   console.log(skill);
 
   try {
-    const results = await User.find({ skills: { $all: [skill] } });
+    let mentor_results = await Mentor.find({
+      skills: { $all: [skill] },
+      isAvailable: true,
+    });
+    let mentor = {};
+    let results = [];
+    for (let i = 0; i < mentor_results.length; i++) {
+      const username = mentor_results[i].username;
+      const { profile_picture, firstName, lastName } = await User.findOne({
+        username: username,
+      });
+      mentor.username = username;
+      mentor.profile_picture = profile_picture;
+      mentor.firstName = firstName;
+      mentor.lastName = lastName;
+      mentor.about = mentor_results[i].about;
+      results.push(mentor);
+    }
+
     console.log(results);
-    if (results && results[0]._id) {
+
+    if (results) {
       res.json(results);
     } else {
       res.json({ error: "Not Found!" });
