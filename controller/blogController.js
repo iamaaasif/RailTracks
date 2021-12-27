@@ -7,10 +7,11 @@ function getCreateBlogPage(req, res, next) {
   res.render("createBlogs");
 }
 function getViewBlog(req, res, next) {
-  res.locals.url_param = req.params.blog_url;
   res.render("viewBlog");
 }
-
+function getMyBlogsPage(req, res, next) {
+  res.render("myblog");
+}
 //api
 async function getBlogs(req, res, next) {
   const blogs = await Blog.find()
@@ -37,6 +38,20 @@ async function getBlog(req, res, next) {
       blog_thumbnail: blog.thumbnail,
       createdAt: blog.createdAt,
     });
+  } else {
+    res.json({ error: "Not Found!" });
+  }
+}
+
+async function getOwnBlogs(req, res, next) {
+  const username = req.params.username;
+  console.log(username);
+  const blogs = await Blog.find({ username: username })
+    .select("url title text thumbnail createdAt author_name")
+    .sort({ createdAt: -1 });
+  console.log(blogs);
+  if (blogs && blogs[0]._id) {
+    res.json(blogs);
   } else {
     res.json({ error: "Not Found!" });
   }
@@ -111,4 +126,6 @@ module.exports = {
   createBlog,
   getBlogs,
   getBlog,
+  getMyBlogsPage,
+  getOwnBlogs,
 };

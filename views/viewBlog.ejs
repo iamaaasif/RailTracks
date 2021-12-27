@@ -39,65 +39,91 @@
 
 <body>  
     <!--loading -->
-    <!-- <div class="loading">
+    <div class="loading">
         <div class="circle"></div>
-    </div> -->
-    <!--/-->
-    
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container-fluid">
-            <!--logo-->
-            <div class="logo">
-                <a href="/">
-                    <img src="/images/logo.png" alt="" class="logo-dark">
-                    <img src="/images/logo.png" alt="" class="logo-white">
-                </a>
-            </div>
-            <!--/-->
-    
-            <!--navbar-collapse-->
-           
-            <!--/-->
-    
-            <!--navbar-right-->
-            <div class="navbar-right ml-auto">
-                <div class="collapse navbar-collapse" id="main_nav">
-                    <ul class="navbar-nav ml-auto mr-auto">
-                        <% if (loggedInUser && loggedInUser.email) { %>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="/profile"> Profile </a>
-        
-                        </li>
-        
-                        <li class="nav-item ">
-                            <a class="nav-link " href="/blog/createBlog"> Create Blog </a>
-                
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a class="nav-link " onclick="logout()"> Log Out </a>
-                
-                        </li>
-                        <% } else { %>
-                            <a class="nav-link login-button" href="/login"
-                            >Offer Mentorship</a
-                          >
-              
-                          <a class="nav-link text-white add-button" href="#">Find Mentor</a>
-                          <% } %>
-                       
-                    </ul>
-                </div>
-    
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
+    </div>
+    <!--/
+   <!-- Navigation-->
+ <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+        <!--logo-->
+        <div class="logo">
+            <a href="/">
+                <img src="/images/logo.png" alt="" class="logo-dark">
+                <img src="/images/logo.png" alt="" class="logo-white">
+            </a>
         </div>
-    </nav>
+        <!--/-->
+
+        <!--navbar-collapse-->
+        <div class="collapse navbar-collapse" id="main_nav">
+            <ul class="navbar-nav ml-auto mr-auto">
+                <% if (loggedInUser && loggedInUser.email) { %>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/"> Home </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link  dropdown-toggle" href="/profile" data-toggle="dropdown"> Profile </a>
+                    <ul class="dropdown-menu fade-up">
+                        <li>
+                            <a class="dropdown-item " href="/profile/myProfile"> My Profile </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/profile/editProfile/<%= loggedInUser.username %> ">Edit Profile</a>
+                        </li>
+                       
+                       
+                        
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link  dropdown-toggle" href="/blog/createBlog"> Create Blog </a>
+                </li>
+
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link  dropdown-toggle" href="/blog/user/<%= loggedInUser.username %> "> My Blogs </a>
+                </li>
+                <% } else { %>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/"> Home </a>
+                    </li>
+                <% } %>
+
+
+
+            </ul>
+        </div>
+        <!--/-->
+
+        <!--navbar-right-->
+        <div class="navbar-right ml-auto">
+            <% if (loggedInUser && loggedInUser.email) { %>
+
+            <a class="nav-link text-white add-button" href="#">Find Mentor</a>
+
+            <li class="nav-item">
+                <a class="nav-link login-button" onclick="logout()"> Log Out </a>
     
+            </li>
+            <% } else { %>
+                <a class="nav-link login-button" href="/login"
+                >Offer Mentorship</a
+              >
+                <a class="nav-link text-white add-button" href="#">Find Mentor</a>
+          
+                <% } %>
+
+
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+</nav>
+<!--/-->
 
   
     <!--post-default-->
@@ -108,13 +134,13 @@
                     <!--Post-single-->
                     <div class="post-single" id="blog-view">
                         <div class="post-single-image">
-                            <img src="assets/img/blog/6.jpg" alt="">
+                            <img src="" alt="">
                         </div>
                         <div class="post-single-content">
                             <h4 id="blog-title"> </h4>
                             <div class="post-single-info">
                                 <ul class="list-inline">
-                                    <li><a href="author.html"><img src="assets/img/author/1.jpg" alt=""></a></li>
+                                    <li><a href=""><img src="" alt=""></a></li>
                                     <li>Written </a> </li>
                                     <li class="dot"></li>
                                     <li>January 15, 2021</li>
@@ -146,17 +172,16 @@
                            
                             <li class="last-post">
                                 <div class="image">
-                                    <a href="post-default.html">
-                                        <img src="assets/img/latest/4.jpg" alt="...">
+                                    <a href="">
+                                        <img src="" alt="...">
                                     </a>
                                 </div>
-                                <div class="nb">4</div>
                                 <div class="content">
                                     <p>
-                                        <a href="post-default.html">10 Best and Most Beautiful Places to Visit in Italy</a>
+                                        <a href=""></a>
                                     </p>
                                     <small>
-                                        <span class="icon_clock_alt"></span> January 15, 2021</small>
+                                        <span class="icon_clock_alt"></span> </small>
                                 </div>
                             </li>
                         </ul>

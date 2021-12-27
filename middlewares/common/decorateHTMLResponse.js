@@ -7,6 +7,7 @@ function decorateHtmlResponse(page_title) {
     res.locals.data = {};
     res.locals.newUser = false;
     res.locals.userLastName = {};
+    res.locals.username = {};
 
     next();
   };

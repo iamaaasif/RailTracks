@@ -15,6 +15,7 @@ async function userRegistration(req, res, next) {
   const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
   const newUser = new User({
+    username: req.body.username,
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
@@ -30,7 +31,7 @@ async function userRegistration(req, res, next) {
       userLastName: req.body.lastName,
       loggedInUser: {},
       errors: {},
-      data: { email: req.body.email },
+      data: { email: req.body.email, username: req.body.username },
     });
 
     res.status(200).json({

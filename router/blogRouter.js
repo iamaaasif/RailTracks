@@ -11,6 +11,8 @@ const {
   getBlogs,
   getBlog,
   createBlog,
+  getMyBlogsPage,
+  getOwnBlogs,
 } = require("../controller/blogController");
 const imageUpload = require("../middlewares/users/imageUpload");
 const decorateHtmlResponse = require("../middlewares/common/decorateHTMLResponse");
@@ -23,6 +25,7 @@ const {
 // api
 router.get("/api/v1/blogs", getBlogs);
 router.get("/api/v1/blogs/:blog_url", getBlog);
+router.get("/api/v1/blogs/user/:username", getOwnBlogs);
 
 router.get(
   "/",
@@ -41,6 +44,13 @@ router.get(
   decorateHtmlResponse("viewBlog"),
   checkLoginForLandingPage,
   getViewBlog
+);
+
+router.get(
+  "/user/:username",
+  decorateHtmlResponse("viewBlog"),
+  checkLoginForLandingPage,
+  getMyBlogsPage
 );
 
 // post

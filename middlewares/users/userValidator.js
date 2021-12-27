@@ -13,6 +13,20 @@ const signUpValidators = [
     .isAlpha("en-US", { ignore: " -" })
     .withMessage("Name must not contain anything other than alphabet")
     .trim(),
+  check("username")
+    .isLength({ min: 3 })
+    .withMessage("Username is required")
+    .trim()
+    .custom(async (value) => {
+      try {
+        const user = await User.findOne({ username: value });
+        if (user) {
+          throw createError("username already exist! Please try with another.");
+        }
+      } catch (err) {
+        throw createError(err.message);
+      }
+    }),
   check("email")
     .isLength({ min: 3 })
     .withMessage("Email is required")

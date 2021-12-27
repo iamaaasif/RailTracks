@@ -26,6 +26,7 @@ async function login(req, res, next) {
       if (isValidPasswored) {
         // prepare the user object to generate token
         const userObject = {
+          username: user.username,
           email: user.email,
           firstName: user.firstName,
           lastName: user.lastName,

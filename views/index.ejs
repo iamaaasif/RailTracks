@@ -116,14 +116,14 @@
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-lg-12 col-md-12 align-content-center">
-                <form>
-                  <div class="form-row">
+                <form action="/search" method="GET">
+                  <div class="form-row" style="justify-content: center;">
                     <div class="form-group col-md-4">
-                      <input type="text" style="color: #000000; background-color: #dadae4"
+                      <input type="search"  name="skill" style="color: #000000; background-color: #dadae4"
                         class="form-control my-2 my-lg-1" id="inputtext4" placeholder="What are you looking for" />
                     </div>
                     <div class="form-group col-md-1"></div>
-                    <div class="form-group col-md-4">
+                    <!-- <div class="form-group col-md-4">
                       <select style="color: #000000; background-color: #dadae4"
                         class="w-80 form-control mt-lg-1 mt-md-2">
                         <option style="color: gray" value="" disabled selected hidden>
@@ -133,13 +133,11 @@
                         <option value="2">Category 1</option>
                         <option value="3">Category 2</option>
                       </select>
-                    </div>
+                    </div> -->
 
                     <div class="form-group col-md-1"></div>
                     <div class="form-group col-md-2 align-self-center">
-                      <button type="submit" class="btn-search btn-primary">
-                        Search Now
-                      </button>
+                      <input type="submit" value="Search Now" class="btn-search btn-primary">
                     </div>
                   </div>
                 </form>

@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Title -->
+    <title> Blogs </title>
+
+    <!-- Font Google -->
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <!-- CSS Plugins -->
+    <link rel="stylesheet" href="https://noonpost.netlify.app/html/template/assets/css/all.css">
+    <link rel="stylesheet" href="https://noonpost.netlify.app/html/template/assets/css/elegant-font-icons.css">
+    <link rel="stylesheet" href="https://noonpost.netlify.app/html/template/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://noonpost.netlify.app/html/template/assets/css/owl.carousel.css">
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> -->
+    <!-- main style -->
+    <link rel="stylesheet" href="https://noonpost.netlify.app/html/template/assets/css/style.css">
+    <link rel="stylesheet" href="https://noonpost.netlify.app/html/template/assets/css/custom.css">
+    <link href="/css/style.css" rel="stylesheet" />
+
+    <script>
+        //  window.location.replace("/");
+        function logout() {
+            fetch("/", {
+                method: "DELETE",
+            });
+            setTimeout(() => {
+                window.location.replace("/");
+            }, 1000);
+        }
+    </script>
+</head>
+
+<body>
+    <!--loading -->
+    <div class="loading">
+        <div class="circle"></div>
+    </div>
+    <!--/
+    
+
+    
+ <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <!--logo-->
+            <div class="logo">
+                <a href="/">
+                    <img src="/images/logo.png" alt="" class="logo-dark">
+                    <img src="/images/logo.png" alt="" class="logo-white">
+                </a>
+            </div>
+            <!--/-->
+
+            <!--navbar-collapse-->
+            <div class="collapse navbar-collapse" id="main_nav">
+                <ul class="navbar-nav ml-auto mr-auto">
+                    <% if (loggedInUser && loggedInUser.email) { %>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="/"> Home </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link  dropdown-toggle" href="/profile" data-toggle="dropdown"> Profile </a>
+                            <ul class="dropdown-menu fade-up">
+                                <li>
+                                    <a class="dropdown-item " href="/profile/<%= loggedInUser.username %> "> My Profile </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="/profile/editProfile/<%= loggedInUser.username %> ">Edit Profile</a>
+                                </li>
+
+
+
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link  dropdown-toggle" href="/blog/createBlog"> Create Blog </a>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link  dropdown-toggle" href="/blog"> Blog </a>
+                        </li>
+                        <% } else { %>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="/"> Home </a>
+                            </li>
+                            <% } %>
+
+
+
+                </ul>
+            </div>
+            <!--/-->
+
+            <!--navbar-right-->
+            <div class="navbar-right ml-auto">
+                <% if (loggedInUser && loggedInUser.email) { %>
+
+                    <a class="nav-link text-white add-button" href="#">Find Mentor</a>
+
+                        <li class="nav-item">
+                            <a class="nav-link login-button" onclick="logout()"> Log Out </a>
+
+                        </li>
+                        <% } else { %>
+                            <a class="nav-link login-button" href="/login">Offer Mentorship</a>
+                            <a class="nav-link text-white add-button" href="#">Find Mentor</a>
+
+                            <% } %>
+
+
+
+                                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                    data-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+            </div>
+        </div>
+    </nav>
+    <!--/-->
+
+
+
+
+
+
+
+
+
+
+
+    <!--mansory-layout-->
+    <section class="masonry-layout col2-layout mt-30" style="margin-top: 150px;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8 mt--10 ">
+                    <!--cards-->
+                    <div class="card-columns" id="blog_container">
+
+
+                        <!--Post-1-->
+                        <div class="card">
+                            <div class="post-card">
+                                <div class="post-card-image">
+                                    <a href="">
+                                        <img src="" alt="">
+                                    </a>
+                                </div>
+                                <div class="post-card-content">
+                                    <h5><a href=""></a> </h5>
+                                    <p>
+                                    </p>
+                                    <div class="post-card-info">
+                                        <ul class="list-inline">
+                                            <li>
+                                                </a>
+                                            </li>
+                                            <li></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/-->
+                        </div>
+                        <!--Post-2-->
+                        <div class="card">
+                            <div class="post-card">
+                                <div class="post-card-image">
+                                    <a href="">
+                                        <img src="" alt="">
+                                    </a>
+                                </div>
+                                <div class="post-card-content">
+                                    <h5>
+                                        <a href=""></a>
+                                    </h5>
+                                    <p> </p>
+                                    <div class="post-card-info">
+                                        <ul class="list-inline">
+
+                                            <li>
+                                            </li>
+                                            <li></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/-->
+                        </div>
+
+
+
+
+                    </div>
+
+                    <!--pagination-->
+                    <!-- <div class="pagination mt-30">
+                        <ul class="list-inline">
+                            <li class="active">
+                                <a href="#">1</a>
+                            </li>
+                            <li>
+                                <a href="#">2</a>
+                            </li>
+                            <li>
+                                <a href="#">3</a>
+                            </li>
+                            <li>
+                                <a href="#">4</a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="arrow_carrot-2right"></i>
+                                </a>
+                            </li>
+                        </ul> 
+                    </div>/ -->
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!--/-->
+
+
+    <footer id="sticky-footer" class="flex-shrink-0 py-2 text-white bg-black">
+        <div class="container text-center">
+            <small>Copyright &copy; RailTracks</small>
+        </div>
+    </footer>
+
+
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://noonpost.netlify.app/html/template/assets/js/jquery-3.5.0.min.js"></script>
+    <script src="https://noonpost.netlify.app/html/template/assets/js/popper.min.js"></script>
+    <script src="https://noonpost.netlify.app/html/template/assets/js/bootstrap.min.js"></script>
+
+    <!-- JS Plugins  -->
+    <script src="https://noonpost.netlify.app/html/template/assets/js/ajax-contact.js"></script>
+    <script src="https://noonpost.netlify.app/html/template/assets/js/owl.carousel.min.js"></script>
+    <script src="https://noonpost.netlify.app/html/template/assets/js/switch.js"></script>
+
+    <!-- JS main  -->
+    <script src="https://noonpost.netlify.app/html/template/assets/js/main.js"></script>
+
+
+
+    <script>
+
+
+        const url = window.location;
+        const path = window.location.pathname.split("/").pop();
+        let api_url = "http://localhost:3000/blog/api/v1/blogs/user/" + path;
+
+
+        
+
+
+        //api
+        //  api fetch
+        async function getData() {
+            const response = await fetch(api_url);
+            const data = await response.json();
+            let html_data = '';
+
+            for (let i = 0; i < data.length; i++) {
+                let date = new Date(data[i].createdAt).toDateString();
+                if (i % 2 === 0) {
+                    html_data += `  <div class="card">
+                            <div class="post-card">
+                            <div class="post-card-image">
+                                <a href="/blog/viewBlog/${data[i].url}">
+                                    <img  src="/uploads/thumbnails/${data[i].thumbnail}" alt="">
+                                </a>
+                            </div>
+                            <div class="post-card-content">
+                                <h5><a href="/blog/viewBlog/${data[i].url}">${data[i].title}</a> </h5>
+                                <p>${data[i].text.substring(0, Math.min(100, data[i].text.length / 2))}....
+                                </p>
+                                <div class="post-card-info">
+                                    <ul class="list-inline">
+                                        <li>
+                                            Written by ${data[i].author_name}</a>
+                                        </li>
+                                        <li class="dot"></li>
+                                        <li>${date}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            </div>
+                        </div>`;
+                }
+                else {
+                    html_data += ` <div class="card">
+                            <div class="post-card">
+                                <div class="post-card-image">
+                                    <a href="/blog/viewBlog/${data[i].url}">
+                                        <img  src="/uploads/thumbnails/${data[i].thumbnail}" alt="">
+                                    </a>
+                                </div>
+                                <div class="post-card-content">
+                                    <h5><a href="/blog/viewBlog/${data[i].url}">${data[i].title}</a> </h5>
+
+                                    <p>${data[i].text.substring(0, Math.min(100, data[i].text.length / 2))}....
+                                </p>
+                                <div class="post-card-info">
+                                    <ul class="list-inline">
+                                        <li>
+                                            Written by ${data[i].author_name}</a>
+                                        </li>
+                                        <li class="dot"></li>
+                                        <li>${date}</li>
+                                    </ul>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                       `;
+                }
+
+               
+
+            }
+
+
+            document.getElementById("blog_container").innerHTML = html_data;
+
+        }
+        getData();
+
+
+        /// on scrolling nav bar padding reduce
+        window.onscroll = function () {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            if (
+                document.body.scrollTop > 80 ||
+                document.documentElement.scrollTop > 80
+            ) {
+                document.getElementById("navtop").style.padding = "2px 2px";
+            } else {
+                document.getElementById("navtop").style.padding = "20px 20px";
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
