@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<html class="" lang="en">
-
-<head>
+<html class="" lang="en"><head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,12 +29,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <!-- <link rel="stylesheet" href="https://rsms.me/inter/inter.css"> -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.mentorcruise.com/css/bulma.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.mentorcruise.com/css/app.min.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.mentorcruise.com/css/tailwind.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.mentorcruise.com/css/bulma.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.mentorcruise.com/css/app.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.mentorcruise.com/css/tailwind.min.css">
 
     <!-- Font Google -->
-    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
 
     <!-- CSS Plugins -->
     <link rel="stylesheet" href="https://noonpost.netlify.app/html/template/assets/css/all.css">
@@ -47,7 +45,7 @@
     <!-- main style -->
     <link rel="stylesheet" href="https://noonpost.netlify.app/html/template/assets/css/style.css">
     <link rel="stylesheet" href="https://noonpost.netlify.app/html/template/assets/css/custom.css">
-    <link href="/css/style.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet">
 
     <script>
         //  window.location.replace("/");
@@ -81,41 +79,12 @@
         <!--navbar-collapse-->
         <div class="collapse navbar-collapse" id="main_nav">
             <ul class="navbar-nav ml-auto mr-auto">
-                <% if (loggedInUser && loggedInUser.email) { %>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="/"> Home </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link  dropdown-toggle" href="/profile" data-toggle="dropdown"> Profile </a>
-                        <ul class="dropdown-menu fade-up">
-                            <li>
-                                <a class="dropdown-item " href="/profile/<%= loggedInUser.username %> "> My Profile
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item"
-                                    href="/profile/editProfile/<%= loggedInUser.username %> ">Edit Profile</a>
-                            </li>
 
-
-
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link  dropdown-toggle" href="/blog/createBlog"> Create Blog </a>
-                    </li>
-
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link  dropdown-toggle" href="/blog/user/<%= loggedInUser.username %> "> My
-                            Blogs </a>
-                    </li>
-                    <% } else { %>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="/"> Home </a>
                         </li>
-                        <% } %>
+
 
 
 
@@ -125,24 +94,15 @@
 
         <!--navbar-right-->
         <div class="navbar-right ml-auto">
-            <% if (loggedInUser && loggedInUser.email) { %>
 
-                <a class="nav-link text-white add-button" href="#">Find Mentor</a>
-
-                <li class="nav-item">
-                    <a class="nav-link login-button" onclick="logout()"> Log Out </a>
-
-                </li>
-                <% } else { %>
                     <a class="nav-link login-button" href="/login">Offer Mentorship</a>
                     <a class="nav-link text-white add-button" href="#">Find Mentor</a>
 
-                    <% } %>
 
 
 
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav"
-                            aria-expanded="false" aria-label="Toggle navigation">
+
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
         </div>
@@ -160,9 +120,7 @@
                     <div class="columns sm:px-8">
                         <div class="column is-4" style="text-align: center;">
                             <a class="inline-block px-1 mb-1" href="/mentor/NileshArnaiya/">
-                                <img class="rounded-3xl w-full max-w-xs"
-                                    src="https://cdn.mentorcruise.com/cache/e1370cb3152b94fb50e45f1697c3a8c7/c352bfe473e66c91/e56320a6ecfe8dd68b512c754164de2e.jpg"
-                                    alt="Nilesh Arnaiya">
+                                <img class="rounded-3xl w-full max-w-xs" src="https://cdn.mentorcruise.com/cache/e1370cb3152b94fb50e45f1697c3a8c7/c352bfe473e66c91/e56320a6ecfe8dd68b512c754164de2e.jpg" alt="Nilesh Arnaiya">
                             </a>
                             <div class="block">
                                 <span class="icon is-medium" style="color: #00aced;">
@@ -171,8 +129,7 @@
                                     </a>
                                 </span>
                                 <span class="icon is-medium" style="color: #0077B5;">
-                                    <a style="color: #0077B5;" target="_blank"
-                                        href="https://linkedin.com/in/nilesharnaiya">
+                                    <a style="color: #0077B5;" target="_blank" href="https://linkedin.com/in/nilesharnaiya">
                                         <i class="fa fa-lg fa-linkedin"></i>
                                     </a>
                                 </span>
@@ -214,8 +171,7 @@
                                                 Research
                                             </a>
                                         </div>
-                                        <a href="#tags"
-                                            class="text-green-600 italic underline font-bold ml-2 whitespace-nowrap">+
+                                        <a href="#tags" class="text-green-600 italic underline font-bold ml-2 whitespace-nowrap">+
                                             21
                                             more</a>
                                     </div>
@@ -254,8 +210,7 @@
                     </h2>
                     <a href="/blog/nilesh-arnaiya-meet-mentor/" class="columns max-w-screen-lg pb-8">
                         <div class="column is-3">
-                            <div class="rounded-lg w-full h-40"
-                                style="background-image: url(https://cdn.mentorcruise.com/pinax-images/image-set-112/e9f691e8-f845-4434-990d-9c7ce6af04bd.jpg);  background-size: cover; background-position: center;">
+                            <div class="rounded-lg w-full h-40" style="background-image: url(https://cdn.mentorcruise.com/pinax-images/image-set-112/e9f691e8-f845-4434-990d-9c7ce6af04bd.jpg);  background-size: cover; background-position: center;">
                             </div>
                         </div>
                         <div class="column is-9">
@@ -266,8 +221,7 @@
                             <span class="has-text-blue text-base">
                                 <p>Nilesh is one of our most experienced mentors. With almost two years on the
                                     platforms, he has held dozens of mentees’ hands during their journey and k…
-                                    <span href="/blog/nilesh-arnaiya-meet-mentor/"
-                                        class="block text-green-800 italic underline font-bold pt-2 hover:text-black">Read
+                                    <span href="/blog/nilesh-arnaiya-meet-mentor/" class="block text-green-800 italic underline font-bold pt-2 hover:text-black">Read
                                         post</span>
                                 </p>
                             </span>
@@ -355,15 +309,8 @@
             <div class="column is-4-desktop sm:pl-8">
                 <div class="block rounded-2xl bg-gray-200 has-text-blue">
                     <div class="block">
-                        <nav class="relative z-0 flex divide-x divide-gray-200" aria-label="Tabs"
-                            style="padding-right: 1px;">
-                            <div onclick="switchPlan('9e835c699a')" id="choose-plan-9e835c699a"
-                                class="cursor-pointer text-gray-900 rounded-tl-2xl group relative min-w-0 flex-1 overflow-hidden py-4 px-4 text-sm font-medium text-center hover:bg-gray-300 focus:z-10"
-                                aria-current="page">
-                                <span>Lite Plan</span>
-                                <span aria-hidden="true"
-                                    class="bg-transparent absolute inset-x-0 bottom-0 h-0.5 selected-plan"></span>
-                            </div>
+                        <nav class="relative z-0 flex divide-x divide-gray-200" aria-label="Tabs" style="padding-right: 1px;">
+
 
                         </nav>
                         <div class="plan-details hidden" id="plan-9e835c699a">
@@ -380,68 +327,50 @@
                                 </span>
                                 <div class="mt-6 pl-4 text-base">
                                     <p class="text-lg mb-2">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
                                             </path>
                                         </svg>
-                                        Includes <span
-                                            class="underline cursor-pointer tooltip is-tooltip-top is-tooltip-multiline"
-                                            data-tooltip="We will never limit the interactions you have with your mentor, however there's a practical limit to how much your mentor can reply to.">unlimited</span>
+                                        Includes <span class="underline cursor-pointer tooltip is-tooltip-top is-tooltip-multiline" data-tooltip="We will never limit the interactions you have with your mentor, however there's a practical limit to how much your mentor can reply to.">unlimited</span>
                                         Q&amp;A via chat
                                     </p>
-                                    <p class="text-lg mb-2 cursor-pointer tooltip is-tooltip-top is-tooltip-multiline"
-                                        data-tooltip="Mentor can provide sample exercises and tasks">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
+                                    <p class="text-lg mb-2 cursor-pointer tooltip is-tooltip-top is-tooltip-multiline" data-tooltip="Mentor can provide sample exercises and tasks">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
                                             </path>
                                         </svg>
                                         Tasks &amp; exercises
                                     </p>
                                     <p class="text-lg mb-2">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z">
                                             </path>
                                         </svg>
                                         Up to 10 calls
                                         per month
                                     </p>
                                     <p class="text-lg mb-2 cursor-pointer">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                         </svg>
                                         Expect responses in 24 hours or less
                                     </p>
-                                    <p class="text-lg mb-2 cursor-pointer tooltip is-tooltip-top is-tooltip-multiline"
-                                        data-tooltip="No tricky fees or per-session payments. $
+                                    <p class="text-lg mb-2 cursor-pointer tooltip is-tooltip-top is-tooltip-multiline" data-tooltip="No tricky fees or per-session payments. $
                                                199/month is all you'll pay.">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                         </svg>
                                         Flat fee, no hidden costs
                                     </p>
-                                    <p class="text-lg mb-2  cursor-pointer tooltip is-tooltip-top is-tooltip-multiline"
-                                        data-tooltip="The trial helps to evaluate whether Nilesh is a good fit for you. You can cancel anytime through your dashboard. Only applies to the first time you sign up with Nilesh.">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                                    <p class="text-lg mb-2  cursor-pointer tooltip is-tooltip-top is-tooltip-multiline" data-tooltip="The trial helps to evaluate whether Nilesh is a good fit for you. You can cancel anytime through your dashboard. Only applies to the first time you sign up with Nilesh.">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
                                         </svg>
                                         7 day free trial! Cancel anytime.
                                     </p>
                                 </div>
                                 <div class="mt-8 text-center">
-                                    <a class="bg-mc-blue inline-block w-full text-2xl font-black text-white text-center py-3 rounded-lg hover:text-white hover:bg-gray-700 transition-all duration-150"
-                                        href="/mentor/NileshArnaiya/apply/?plan=9e835c699a"><b>Apply Now</b></a>
+                                    <a class="bg-mc-blue inline-block w-full text-2xl font-black text-white text-center py-3 rounded-lg hover:text-white hover:bg-gray-700 transition-all duration-150" href="/mentor/NileshArnaiya/apply/?plan=9e835c699a"><b>Apply Now</b></a>
                                     <span class="inline-block italic mt-2">
                                         Only 1 spot left!
                                     </span>
@@ -451,82 +380,42 @@
                         <div class="plan-details" id="plan-0b6ca86cda3459">
                             <div class="px-8 pt-2 pb-6">
                                 <p class="text-4xl font-black mt-4">
-                                    $199/month
+Available/Busy
                                 </p>
                                 <div class="italic mt-2">
                                     The most popular way to get mentored, let's work towards your goals!
                                 </div>
-                                <span class="inline-block tag-md italic mt-4">
-                                    1
-                                    spot left!
-                                </span>
+
                                 <div class="mt-6 pl-4 text-base">
                                     <p class="text-lg mb-2">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
                                             </path>
                                         </svg>
-                                        Includes <span
-                                            class="underline cursor-pointer tooltip is-tooltip-top is-tooltip-multiline"
-                                            data-tooltip="We will never limit the interactions you have with your mentor, however there's a practical limit to how much your mentor can reply to.">unlimited</span>
-                                        Q&amp;A via chat
+                                        Includes <span class="underline cursor-pointer tooltip is-tooltip-top is-tooltip-multiline" data-tooltip="We will never limit the interactions you have with your mentor, however there's a practical limit to how much your mentor can reply to.">unlimited</span>
+                                        Q&amp;A via email
                                     </p>
-                                    <p class="text-lg mb-2 cursor-pointer tooltip is-tooltip-top is-tooltip-multiline"
-                                        data-tooltip="Mentor can provide sample exercises and tasks">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z">
-                                            </path>
-                                        </svg>
-                                        Tasks &amp; exercises
-                                    </p>
+
+
                                     <p class="text-lg mb-2">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z">
                                             </path>
                                         </svg>
                                         Up to 20 calls
                                         per month
-                                    </p>
-                                    <p class="text-lg mb-2 cursor-pointer">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </p><p class="text-lg mb-2">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                         </svg>
-                                        Expect responses in 24 hours or less
+                                        Expect responses in 12 hours or less
                                     </p>
-                                    <p class="text-lg mb-2 cursor-pointer tooltip is-tooltip-top is-tooltip-multiline"
-                                        data-tooltip="No tricky fees or per-session payments. $
-                                               199/month is all you'll pay.">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M5 13l4 4L19 7"></path>
-                                        </svg>
-                                        Flat fee, no hidden costs
-                                    </p>
-                                    <p class="text-lg mb-2  cursor-pointer tooltip is-tooltip-top is-tooltip-multiline"
-                                        data-tooltip="The trial helps to evaluate whether Nilesh is a good fit for you. You can cancel anytime through your dashboard. Only applies to the first time you sign up with Nilesh.">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
-                                        </svg>
-                                        7 day free trial! Cancel anytime.
-                                    </p>
+
+
                                 </div>
                                 <div class="mt-8 text-center">
-                                    <a class="bg-mc-blue inline-block w-full text-2xl font-black text-white text-center py-3 rounded-lg hover:text-white hover:bg-gray-700 transition-all duration-150"
-                                        href="/mentor/NileshArnaiya/apply/?plan=0b6ca86cda3459"><b>Apply Now</b></a>
-                                    <span class="inline-block italic mt-2">
-                                        Only 1 spot left!
-                                    </span>
+                                    <a class="bg-mc-blue inline-block w-full text-2xl font-black text-white text-center py-3 rounded-lg hover:text-white hover:bg-gray-700 transition-all duration-150" href="/mentor/NileshArnaiya/apply/?plan=0b6ca86cda3459"><b>Contact Now</b></a>
+
                                 </div>
                             </div>
                         </div>
@@ -541,12 +430,14 @@
 
     <footer id="sticky-footer" class="flex-shrink-0 py-2 text-white bg-black">
         <div class="container text-center">
-          <small>Copyright &copy; RailTracks</small>
+          <small>Copyright © RailTracks</small>
         </div>
       </footer>
 
 
 
-</body>
 
-</html>
+
+
+</body></html>
+
