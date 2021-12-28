@@ -39,8 +39,7 @@ async function profile_data(req, res, next) {
       callsPerMonth,
       maximunResponseTime,
     } = await Mentor.findOne({ username: username });
-    const latestBlog = await Blog.findOne({ author_name: username });
-
+    const latestBlog = await Blog.findOne({ author_username: username });
     let hasWrittenBlog = false;
     if (latestBlog) {
       hasWrittenBlog = true;
