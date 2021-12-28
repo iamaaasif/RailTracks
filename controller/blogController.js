@@ -30,8 +30,7 @@ async function getBlogs(req, res, next) {
     blog.createdAt = blogs[i].createdAt;
     blog.author_username = blogs[i].author_username;
     const { firstName, lastName } = await User.findOne({ username: username });
-    blog.firstName = firstName;
-    blog.lastName = lastName;
+    blog.author_name = firstName + " " + lastName;
 
     blog_results.push(blog);
   }
@@ -47,11 +46,15 @@ async function getBlogs(req, res, next) {
 async function getBlog(req, res, next) {
   const url = req.params.blog_url;
   const blog = await Blog.findOne({ url: url });
+  const { firstName, lastName } = await User.findOne({
+    username: blog.author_username,
+  });
+  const author_name = firstName + " " + lastName;
   if (blog && blog._id) {
     // console.log(blog.title);
     res.json({
       blog_title: blog.title,
-      blog_author: blog.author_name,
+      blog_author: author_name,
       blog_text: blog.text,
       blog_thumbnail: blog.thumbnail,
       createdAt: blog.createdAt,
