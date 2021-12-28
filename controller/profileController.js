@@ -39,7 +39,9 @@ async function profile_data(req, res, next) {
       callsPerMonth,
       maximunResponseTime,
     } = await Mentor.findOne({ username: username });
-    const latestBlog = await Blog.findOne({ author_username: username });
+    const latestBlog = await Blog.findOne({ author_username: username }).sort({
+      createdAt: -1,
+    });
     let hasWrittenBlog = false;
     if (latestBlog) {
       hasWrittenBlog = true;
@@ -77,7 +79,7 @@ async function editProfile(req, res, next) {
   try {
     if (req.files) {
       let res3 = await User.findOneAndUpdate(
-        { username: req.params.username },
+        { username: req.body.username },
         { profile_picture: req.files[0].filename },
         {
           new: true,
@@ -93,7 +95,7 @@ async function editProfile(req, res, next) {
   try {
     if (req.body.firstName.length > 3 || req.body.lastName.length > 3) {
       let res2 = await User.findOneAndUpdate(
-        { username: req.params.username },
+        { username: req.body.username },
         {
           $set: { firstName: req.body.firstName, lastName: req.body.lastName },
         },
@@ -146,7 +148,7 @@ async function editProfile(req, res, next) {
     }
 
     let res1 = await Mentor.findOneAndUpdate(
-      { username: req.params.username },
+      { username: req.body.username },
       { $set: update },
       {
         new: true,

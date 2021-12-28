@@ -11,7 +11,7 @@ function getSearchResult(req, res, next) {
 
 // api
 async function searchResult(req, res, next) {
-  const skill = req.query.skill;
+  const skill = req.query;
   // console.log(skill);
 
   try {
