@@ -1,5 +1,6 @@
 const Blog = require("../models/blog");
 const fs = require("fs");
+const User = require("../models/user");
 function getBlogPage(req, res, next) {
   res.render("blogs");
 }
@@ -14,12 +15,29 @@ function getMyBlogsPage(req, res, next) {
 }
 //api
 async function getBlogs(req, res, next) {
+  let blog = {};
+  let blog_results = [];
   const blogs = await Blog.find()
-    .select("url title text thumbnail createdAt author_name")
+    .select("url title text thumbnail createdAt author_username")
     .sort({ createdAt: -1 });
   // console.log(blogs);
-  if (blogs && blogs[0]._id) {
-    res.json(blogs);
+  for (let i = 0; i < blogs.length; i++) {
+    const username = blogs[i].author_username;
+    blog.url = blogs[i].url;
+    blog.title = blogs[i].title;
+    blog.text = blogs[i].text;
+    blog.thumbnail = blogs[i].thumbnail;
+    blog.createdAt = blogs[i].createdAt;
+    blog.author_username = blogs[i].author_username;
+    const { firstName, lastName } = await User.findOne({ username: username });
+    blog.firstName = firstName;
+    blog.lastName = lastName;
+
+    blog_results.push(blog);
+  }
+  // console.log(blog_results);
+  if (blog_results) {
+    res.json(blog_results);
   } else {
     res.json({ error: "Not Found!" });
   }

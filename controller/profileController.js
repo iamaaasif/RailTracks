@@ -42,7 +42,7 @@ async function profile_data(req, res, next) {
     const latestBlog = await Blog.findOne({ author_name: username });
 
     let hasWrittenBlog = false;
-    if (latestBlog._id) {
+    if (latestBlog) {
       hasWrittenBlog = true;
     }
     const result = {
@@ -68,6 +68,8 @@ async function profile_data(req, res, next) {
     // console.log(result);
     res.json(result);
   } catch (err) {
+    res.json({ error: "no data found" });
+
     console.log(err);
   }
 }

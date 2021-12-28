@@ -9,15 +9,19 @@ const mentorSchema = mongoose.Schema(
     },
     about: {
       type: String,
+      default: "Welcome to my Profile.",
     },
     skills: {
       type: [String],
+      default: ["A", "B", "C"],
     },
     emp_company: {
       type: String,
+      default: "Eastern University",
     },
     emp_role: {
       type: String,
+      default: "Student",
     },
     phone: {
       type: Number,
@@ -34,9 +38,11 @@ const mentorSchema = mongoose.Schema(
     },
     twitter: {
       type: String,
+      default: "#",
     },
     linkedin: {
       type: String,
+      default: "#",
     },
 
     isAvailable: {
