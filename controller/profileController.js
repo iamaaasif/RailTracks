@@ -116,7 +116,7 @@ async function editProfile(req, res, next) {
     skills = req.body.skills;
   }
   try {
-    const update = {};
+    let update = {};
 
     if (req.body.role.length > 3) {
       update.emp_role = req.body.role;

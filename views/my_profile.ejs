@@ -174,25 +174,27 @@
                                         </div>
                                     </div>
                                     <div class="block">
-                                        <div class="inline-block text-base">
-                                            <a href="/search?skill=${data.skills[0]}" style="line-height: 3" class="tag-lg">
-                                                ${data.skills[0]}
+                                    `;
+
+                                    for(let i = 0; i<Math.min(3,data.skills.length); i++){
+                                       html_data+=` <div class="inline-block text-base">
+                                            <a href="/search?skill=${data.skills[i]}" style="line-height: 3" class="tag-lg">
+                                                ${data.skills[i]}
                                             </a>
-                                        </div>
-                                        <div class="inline-block text-base">
-                                            <a href="/search?skill=${data.skills[1]}" style="line-height: 3" class="tag-lg">
-                                                ${data.skills[1]}
-                                            </a>
-                                        </div>
-                                        <div class="inline-block text-base">
-                                            <a href="/search?skill=${data.skills[2]}" style="line-height: 3" class="tag-lg">
-                                                ${data.skills[2]}
-                                            </a>
-                                        </div>
-                                        <a href="#tags" class="text-green-600 italic underline font-bold ml-2 whitespace-nowrap">+
+                                        </div>`;
+                                    }
+                                    
+                                    if(data.skills.length>3)
+                                    {
+                                        html_data+=`<a href="#tags" class="text-green-600 italic underline font-bold ml-2 whitespace-nowrap">+
                                             More..
-                                        </a>
-                                    </div>
+                                        </a>`;
+                                    }
+                                    
+                                   
+                                  html_data+=  `
+                                    
+                                </div>
                                 </div>
                             </div>
                         </div>

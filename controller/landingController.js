@@ -19,22 +19,25 @@ async function searchResult(req, res, next) {
       skills: { $all: [skill] },
       isAvailable: true,
     });
-    let mentor = {};
+    console.log(mentor_results);
+
     let results = [];
     for (let i = 0; i < mentor_results.length; i++) {
+      let mentor = {};
       const username = mentor_results[i].username;
+
       const { profile_picture, firstName, lastName } = await User.findOne({
         username: username,
       });
       mentor.username = username;
+
       mentor.profile_picture = profile_picture;
       mentor.firstName = firstName;
       mentor.lastName = lastName;
       mentor.about = mentor_results[i].about;
+      // console.log(mentor);
       results.push(mentor);
     }
-
-    // console.log(results);
 
     if (results) {
       res.json(results);
