@@ -26,6 +26,7 @@ async function login(req, res, next) {
       if (isValidPasswored) {
         // prepare the user object to generate token
         const userObject = {
+          username: user.username,
           email: user.email,
           firstName: user.firstName,
           lastName: user.lastName,
@@ -46,6 +47,7 @@ async function login(req, res, next) {
 
         // set logged in users local identifiers
         res.locals.loggedInUser = userObject;
+        global.loggedInUser = userObject;
 
         res.redirect("/"); // after logged in , render home page
       } else {

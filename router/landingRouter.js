@@ -3,7 +3,11 @@ const express = require("express");
 const router = express.Router();
 
 // internal imports
-const { getLandingPage } = require("../controller/landingController");
+const {
+  getLandingPage,
+  searchResult,
+  getSearchResult,
+} = require("../controller/landingController");
 const {
   login,
   logout,
@@ -20,12 +24,22 @@ const {
   doLoginValidationHandler,
 } = require("../middlewares/login/loginValidator");
 
+// apis
+router.get("/api/v1/skillSearch", searchResult);
+
 // landing page
 router.get(
   "/",
   decorateHtmlResponse("Home"),
   checkLoginForLandingPage,
   getLandingPage
+);
+
+router.get(
+  "/search",
+  decorateHtmlResponse("Search Result"),
+  checkLoginForLandingPage,
+  getSearchResult
 );
 
 // router.get("/blogs", decorateHtmlResponse("Blogs"), getBlogPage);

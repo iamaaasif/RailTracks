@@ -1,5 +1,6 @@
 const Blog = require("../models/blog");
 const fs = require("fs");
+const User = require("../models/user");
 function getBlogPage(req, res, next) {
   res.render("blogs");
 }
@@ -7,18 +8,35 @@ function getCreateBlogPage(req, res, next) {
   res.render("createBlogs");
 }
 function getViewBlog(req, res, next) {
-  res.locals.url_param = req.params.blog_url;
   res.render("viewBlog");
 }
-
+function getMyBlogsPage(req, res, next) {
+  res.render("myblog");
+}
 //api
 async function getBlogs(req, res, next) {
+  let blog = {};
+  let blog_results = [];
   const blogs = await Blog.find()
-    .select("url title text thumbnail createdAt author_name")
+    .select("url title text thumbnail createdAt author_username")
     .sort({ createdAt: -1 });
-  console.log(blogs);
-  if (blogs && blogs[0]._id) {
-    res.json(blogs);
+  // console.log(blogs);
+  for (let i = 0; i < blogs.length; i++) {
+    const username = blogs[i].author_username;
+    blog.url = blogs[i].url;
+    blog.title = blogs[i].title;
+    blog.text = blogs[i].text;
+    blog.thumbnail = blogs[i].thumbnail;
+    blog.createdAt = blogs[i].createdAt;
+    blog.author_username = blogs[i].author_username;
+    const { firstName, lastName } = await User.findOne({ username: username });
+    blog.author_name = firstName + " " + lastName;
+
+    blog_results.push(blog);
+  }
+  // console.log(blog_results);
+  if (blog_results) {
+    res.json(blog_results);
   } else {
     res.json({ error: "Not Found!" });
   }
@@ -28,15 +46,33 @@ async function getBlogs(req, res, next) {
 async function getBlog(req, res, next) {
   const url = req.params.blog_url;
   const blog = await Blog.findOne({ url: url });
+  const { firstName, lastName } = await User.findOne({
+    username: blog.author_username,
+  });
+  const author_name = firstName + " " + lastName;
   if (blog && blog._id) {
-    console.log(blog.title);
+    // console.log(blog.title);
     res.json({
       blog_title: blog.title,
-      blog_author: blog.author_name,
+      blog_author: author_name,
       blog_text: blog.text,
       blog_thumbnail: blog.thumbnail,
       createdAt: blog.createdAt,
     });
+  } else {
+    res.json({ error: "Not Found!" });
+  }
+}
+
+async function getOwnBlogs(req, res, next) {
+  const username = req.params.username;
+  console.log(username);
+  const blogs = await Blog.find({ author_username: username })
+    .select("url title text thumbnail createdAt author_name")
+    .sort({ createdAt: -1 });
+  // console.log(blogs);
+  if (blogs && blogs[0]._id) {
+    res.json(blogs);
   } else {
     res.json({ error: "Not Found!" });
   }
@@ -58,8 +94,7 @@ async function createBlog(req, res, next) {
           Date.now(),
         title: req.body.title,
         text: req.body.text,
-        author_name: req.body.author_name,
-        author_email: req.body.author_email,
+        author_username: req.body.author_username,
         thumbnail: req.files[0].filename,
       });
     } else {
@@ -74,14 +109,13 @@ async function createBlog(req, res, next) {
           Date.now(),
         title: req.body.title,
         text: req.body.text,
-        author_name: req.body.author_name,
-        author_email: req.body.author_email,
+        author_username: req.body.author_username,
       });
     }
 
     const result = await newBlog.save();
-    console.log("This is result: ");
-    console.log(result);
+    // console.log("This is result: ");
+    // console.log(result);
     res.redirect("/blog");
   } catch (err) {
     console.log("Image deleted.");
@@ -111,4 +145,6 @@ module.exports = {
   createBlog,
   getBlogs,
   getBlog,
+  getMyBlogsPage,
+  getOwnBlogs,
 };

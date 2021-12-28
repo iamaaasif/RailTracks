@@ -14,11 +14,7 @@ const blogSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    author_name: {
-      type: String,
-      required: true,
-    },
-    author_email: {
+    author_username: {
       type: String,
       required: true,
     },

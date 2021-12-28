@@ -2,7 +2,7 @@ const uploader = require("../../utilities/singleUpload");
 
 function imageUpload(req, res, next) {
   const upload = uploader(
-    "thumbnails",
+    "profile_picture",
     ["image/jpeg", "image/jpg", "image/png"],
     1000000,
     "Only .jpg, jpeg or .png format allowed!"

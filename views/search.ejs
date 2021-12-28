@@ -1,0 +1,77 @@
+<%- include('./partials/header.ejs'); %>
+
+    <div class="container">
+        <div class="row" id="search-result">
+         
+        </div>
+        
+      </div>
+      <!-- <div class="container">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+          </nav>
+      </div> -->
+      <%- include('./partials/footer.ejs'); %>
+  <script>
+
+    //api
+    let params = new URLSearchParams(document.location.search);
+    let skill = params.get("skill"); // is the string "Jonathan"
+  //  api fetch
+  console.log(skill);
+    let api_url = "http://localhost:3000/api/v1/skillSearch?skill="+skill;
+    async function getData(){
+      const response = await fetch(api_url);
+      const data = await response.json();
+      let html_data='';
+     
+                     
+      for(let i = 0; i<data.length; i++)
+      {
+         html_data+=` <div class="col">
+            <div class="card" style="width: 18rem;">
+                <img src="images/home/bg_img.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">${data[i].firstName} ${data[i].lastName}</h5>
+                  <p class="card-text">${data[i].about.substr(0,200)}...</p>
+                  <a href="/profile/${data[i].username}" class="btn btn-primary">View Profile</a>
+                </div>
+              </div>
+          </div>`
+      }
+       
+      
+
+    
+      console.log(html_data);
+      document.getElementById("search-result").innerHTML = html_data;    
+     
+    }
+    getData();
+
+
+    /// on scrolling nav bar padding reduce
+    window.onscroll = function () {
+      scrollFunction();
+    };
+
+    function scrollFunction() {
+      if (
+        document.body.scrollTop > 80 ||
+        document.documentElement.scrollTop > 80
+      ) {
+        document.getElementById("navtop").style.padding = "2px 2px";
+      } else {
+        document.getElementById("navtop").style.padding = "20px 20px";
+      }
+    }
+  </script>
+
+</body>
+</html>

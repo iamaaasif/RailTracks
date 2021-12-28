@@ -1,102 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title><%= title %></title>
+<%- include('./partials/header.ejs'); %>
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-    ></script>
-
-    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css" />
-
-    <link
-      href="plugins/font-awesome/css/font-awesome.min.css"
-      rel="stylesheet"
-    />
-
-    <link href="css/style.css" rel="stylesheet" />
-<script>
-  //  window.location.replace("/");
-   function logout() {
-        fetch("/", {
-          method: "DELETE",
-        });
-        setTimeout(() => {
-          window.location.replace("/");
-        }, 1000);
-      }
-</script>
-
-  </head>
-
-  <body class="bg-blue">
-
-   
-    <!-- Nav bar -->
-    <section class="nav-header">
-      <nav
-        id="navtop"
-        class="
-          navbar navbar-expand-lg
-          bg-white
-          navbar-light
-          navigation
-          fixed-top
-        "
-      >
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">
-            <img src="images/logo.png" alt="RailTracks" />
-          </a>
-          <button
-            type="button"
-            class="navbar-toggler"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarCollapse"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto">
-              <% if (loggedInUser && loggedInUser.email) { %>
-              <a
-                href="#"
-                class="nav-item nav-link active d-none"
-                aria-current="page"
-                >Home</a
-              >
-              
-              <a href="/profile" class="btn-5 nav-item nav-link" style="color:black;" >Profile</a>
-              <!-- <a href="/message" class="btn-5 nav-item nav-link" style="color:black;">Messages</a> -->
-              <a href="/blog" class="btn-5 nav-item nav-link" style="color:black;">Blogs</a>
-              <a href="#" onclick="logout()" class="btn-5 nav-item nav-link" style="color:black;">Log Out</a>
-              <% } else { %>
-                <a href="/blog" class="btn-5 nav-item nav-link login-button">Blogs</a>
-
-              <a class="nav-link login-button" href="/login"
-                >Offer Mentorship</a
-              >
-
-              <a class="nav-link text-white add-button" href="#">Find Mentor</a>
-
-              <% } %>
-            </div>
-          </div>
-        </div>
-      </nav>
-    </section>
   
     <!-- nav bar end -->
 
@@ -116,14 +19,14 @@
           <div class="container">
             <div class="row justify-content-center">
               <div class="col-lg-12 col-md-12 align-content-center">
-                <form>
-                  <div class="form-row">
+                <form action="/search" method="GET">
+                  <div class="form-row" style="justify-content: center;">
                     <div class="form-group col-md-4">
-                      <input type="text" style="color: #000000; background-color: #dadae4"
+                      <input type="search"  name="skill" style="color: #000000; background-color: #dadae4"
                         class="form-control my-2 my-lg-1" id="inputtext4" placeholder="What are you looking for" />
                     </div>
                     <div class="form-group col-md-1"></div>
-                    <div class="form-group col-md-4">
+                    <!-- <div class="form-group col-md-4">
                       <select style="color: #000000; background-color: #dadae4"
                         class="w-80 form-control mt-lg-1 mt-md-2">
                         <option style="color: gray" value="" disabled selected hidden>
@@ -133,13 +36,11 @@
                         <option value="2">Category 1</option>
                         <option value="3">Category 2</option>
                       </select>
-                    </div>
+                    </div> -->
 
                     <div class="form-group col-md-1"></div>
                     <div class="form-group col-md-2 align-self-center">
-                      <button type="submit" class="btn-search btn-primary">
-                        Search Now
-                      </button>
+                      <input type="submit" value="Search Now" class="btn-search btn-primary">
                     </div>
                   </div>
                 </form>
@@ -156,7 +57,8 @@
   <!-- extra - kono kamer nah.. ken use korchi nijeo jani nah, but kam korteche -->
   <!-- <div style="margin-top: 10px"></div> -->
   <!-- extra - end -->
-
+<div class="bg-blue"> 
+  
   <section style="padding:30px;color: #ffffff; text-align: center;">
     <div class=""><h2 style="color: #ffffff;  font-weight: bold;">Share Your Experience – be a Mentor! </h2></div>
     <p style="color: #ffffff; text-align: center;">Being a RailTracks mentor doesn’t require a significant time commitment and you can make a real difference for a young person who is just getting started. RailTracks mentors meet with their students via teleconference on a regular schedule for one-hour sessions. Mentors encourage open discussion with their students to help them get the most from the program and share their own experiences with career exploration, job searching, and professional development.</p>
@@ -182,12 +84,10 @@ The RailTracks mentorship program is also a valuable cultural and educational ex
     <p style="color: #ffffff;">
       Are you a parent, guardian, teacher, or caring adult to a young person who you feel could benefit from a mentor? Or are you a young person who wants to connect with a mentor? Mentors are supportive individuals who build relationships with young people by offering them guidance, support, and encouragement to help cultivate positive and healthy development – many of the same things you do. Mentors are not meant to replace parents, guardians, or teachers, or to play the role of disciplinarians or decision makers. Rather, they become part of a team of caring adults to that young person. Mentors can help encourage positive choices, promote high self-esteem, support academic achievement and introduce new ideas.    </p>
   </section>
-  
-  <footer id="sticky-footer" class="flex-shrink-0 py-2 text-white">
-    <div class="container text-center">
-      <small>Copyright &copy; RailTracks</small>
-    </div>
-  </footer>
+</div>
+
+  <%- include('./partials/footer.ejs'); %>
+
 
   <script>
     /// on scrolling nav bar padding reduce

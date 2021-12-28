@@ -16,7 +16,8 @@ const checkLogin = (req, res, next) => {
       if (res.locals.html) {
         res.locals.loggedInUser = decoded_cookie;
       }
-      console.log(res.locals.loggedInUser);
+      global.loggedInUser = decoded_cookie;
+      // console.log(res.locals.loggedInUser);
       next();
     } catch (err) {
       console.log(err);
@@ -71,10 +72,13 @@ const checkLoginForLandingPage = (req, res, next) => {
       if (res.locals.html) {
         res.locals.loggedInUser = decoded_cookie;
       }
-      console.log(res.locals.loggedInUser);
+      global.loggedInUser = decoded_cookie;
+      // console.log(res.locals.loggedInUser);
       next();
     } catch (err) {
       res.locals.loggedInUser = {};
+      global.loggedInUser = {};
+
       console.log(err);
     }
   } else {

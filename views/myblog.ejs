@@ -1,7 +1,8 @@
 <%- include('./partials/header.ejs'); %>
 
+
     <!--mansory-layout-->
-    <section class="masonry-layout col2-layout mt-30" style="margin-top: 150px;" >
+    <section class="masonry-layout col2-layout mt-30" style="margin-top: 150px;">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-8 mt--10 ">
@@ -12,25 +13,26 @@
                         <!--Post-1-->
                         <div class="card">
                             <div class="post-card">
-                            <div class="post-card-image">
-                                <a href="">
-                                    <img src="" alt="">
-                                </a>
-                            </div>
-                            <div class="post-card-content">
-                                <h5><a href=""></a> </h5>
-                                <p>
-                                </p>
-                                <div class="post-card-info">
-                                    <ul class="list-inline">
-                                        <li>
-                                        </a>
-                                        </li>
-                                        <li></li>
-                                    </ul>
+                                <div class="post-card-image">
+                                    <a href="">
+                                        <img src="" alt="">
+                                    </a>
+                                </div>
+                                <div class="post-card-content">
+                                    <h5><a href=""></a> </h5>
+                                    <p>
+                                    </p>
+                                    <div class="post-card-info">
+                                        <ul class="list-inline">
+                                            <li>
+                                                </a>
+                                            </li>
+                                            <li></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                            </div><!--/-->
+                            <!--/-->
                         </div>
                         <!--Post-2-->
                         <div class="card">
@@ -47,7 +49,7 @@
                                     <p> </p>
                                     <div class="post-card-info">
                                         <ul class="list-inline">
-                                            
+
                                             <li>
                                             </li>
                                             <li></li>
@@ -57,11 +59,10 @@
                             </div>
                             <!--/-->
                         </div>
-                       
-                        
 
-                       
-                       
+
+
+
                     </div>
 
                     <!--pagination-->
@@ -87,58 +88,37 @@
                         </ul> 
                     </div>/ -->
                 </div>
-                <div class="col-lg-4 max-width">
-                    <!--widget-latest-posts-->
-                    <div class="widget ">
-                        <div class="section-title">
-                            <h5>Latest Posts</h5>
-                        </div>
-                        <ul class="widget-latest-posts" id="latest_post">
-                           
-                           
-                            <li class="last-post">
-                                <div class="image">
-                                    <a href="">
-                                        <img src="" alt="...">
-                                    </a>
-                                </div>
-                                <div class="content">
-                                    <p>
-                                        <a href=""></a>
-                                    </p>
-                                    <small>
-                                        <span class="icon_clock_alt"></span> </small>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <!--/-->
-                    
-                </div>
+
             </div>
         </div>
-    </section><!--/-->
-  
+    </section>
+    <!--/-->
+
     <%- include('./partials/footer.ejs'); %>
 
 
-  <script>
+    <script>
 
-    //api
-  //  api fetch
-    let api_url = "http://localhost:3000/blog/api/v1/blogs";
-    async function getData(){
-      const response = await fetch(api_url);
-      const data = await response.json();
-      let html_data='';
-      let latest_data='';
-                     
-      for(let i = 0; i<data.length; i++)
-      {
-          let date = new Date(data[i].createdAt).toDateString();
-          if(i%2===0)
-          {
-              html_data+= `  <div class="card">
+
+        const url = window.location;
+        const path = window.location.pathname.split("/").pop();
+        let api_url = "http://localhost:3000/blog/api/v1/blogs/user/" + path;
+
+
+        
+
+
+        //api
+        //  api fetch
+        async function getData() {
+            const response = await fetch(api_url);
+            const data = await response.json();
+            let html_data = '';
+
+            for (let i = 0; i < data.length; i++) {
+                let date = new Date(data[i].createdAt).toDateString();
+                if (i % 2 === 0) {
+                    html_data += `  <div class="card">
                             <div class="post-card">
                             <div class="post-card-image">
                                 <a href="/blog/viewBlog/${data[i].url}">
@@ -147,7 +127,7 @@
                             </div>
                             <div class="post-card-content">
                                 <h5><a href="/blog/viewBlog/${data[i].url}">${data[i].title}</a> </h5>
-                                <p>${data[i].text.substring(0,Math.min(100,data[i].text.length/2))}....
+                                <p>${data[i].text.substring(0, Math.min(100, data[i].text.length / 2))}....
                                 </p>
                                 <div class="post-card-info">
                                     <ul class="list-inline">
@@ -161,10 +141,9 @@
                             </div>
                             </div>
                         </div>`;
-          }
-          else
-          {
-              html_data+=` <div class="card">
+                }
+                else {
+                    html_data += ` <div class="card">
                             <div class="post-card">
                                 <div class="post-card-image">
                                     <a href="/blog/viewBlog/${data[i].url}">
@@ -174,7 +153,7 @@
                                 <div class="post-card-content">
                                     <h5><a href="/blog/viewBlog/${data[i].url}">${data[i].title}</a> </h5>
 
-                                    <p>${data[i].text.substring(0,Math.min(100,data[i].text.length/2))}....
+                                    <p>${data[i].text.substring(0, Math.min(100, data[i].text.length / 2))}....
                                 </p>
                                 <div class="post-card-info">
                                     <ul class="list-inline">
@@ -189,54 +168,37 @@
                             </div>
                         </div>
                        `;
-          }
+                }
 
-          if(i<4)
-      {
-          latest_data+=`<li class="last-post">
-                                <div class="image">
-                                    <a href="/blog/viewBlog/${data[i].url}">
-                                        <img  src="/uploads/thumbnails/${data[i].thumbnail}" alt="">
-                                    </a>
-                                </div>
-                                <div class="content">
-                                    <p>
-                                        <a href="/blog/viewBlog/${data[i].url}">${data[i].title}</a>
-                                    </p>
-                                    <small>
-                                        ${date}</small>
-                                </div>
-                            </li>`;
-      }
-       
-      }
+               
 
-    
-      console.log(html_data);
-      document.getElementById("blog_container").innerHTML = html_data;    
-      document.getElementById("latest_post").innerHTML = latest_data;         
-     
-    }
-    getData();
+            }
 
 
-    /// on scrolling nav bar padding reduce
-    window.onscroll = function () {
-      scrollFunction();
-    };
+            document.getElementById("blog_container").innerHTML = html_data;
 
-    function scrollFunction() {
-      if (
-        document.body.scrollTop > 80 ||
-        document.documentElement.scrollTop > 80
-      ) {
-        document.getElementById("navtop").style.padding = "2px 2px";
-      } else {
-        document.getElementById("navtop").style.padding = "20px 20px";
-      }
-    }
-  </script>
+        }
+        getData();
+
+
+        /// on scrolling nav bar padding reduce
+        window.onscroll = function () {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            if (
+                document.body.scrollTop > 80 ||
+                document.documentElement.scrollTop > 80
+            ) {
+                document.getElementById("navtop").style.padding = "2px 2px";
+            } else {
+                document.getElementById("navtop").style.padding = "20px 20px";
+            }
+        }
+    </script>
 
 
 </body>
+
 </html>

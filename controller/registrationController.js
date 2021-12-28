@@ -4,6 +4,7 @@ const { body } = require("express-validator");
 
 // internal imports
 const User = require("../models/user");
+const Mentor = require("../models/mentor");
 
 function getRegistration(req, res, next) {
   res.render("register", {
@@ -15,6 +16,7 @@ async function userRegistration(req, res, next) {
   const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
   const newUser = new User({
+    username: req.body.username,
     firstName: req.body.firstName,
     lastName: req.body.lastName,
     email: req.body.email,
@@ -23,6 +25,9 @@ async function userRegistration(req, res, next) {
   try {
     const result = await newUser.save();
 
+    const newMentor = new Mentor({ username: req.body.username });
+    const mentorResult = await newMentor.save();
+
     res.render("login", {
       html: true,
       title: "Login - RailTracks",
@@ -30,7 +35,7 @@ async function userRegistration(req, res, next) {
       userLastName: req.body.lastName,
       loggedInUser: {},
       errors: {},
-      data: { email: req.body.email },
+      data: { email: req.body.email, username: req.body.username },
     });
 
     res.status(200).json({

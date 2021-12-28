@@ -18,23 +18,6 @@ body {
   height: 100%;
 }
 
-.form-control {
-  
-  font-family: comfortaa, cursive;
-  font-size: 16px;
-  font-weight: 300;
-  line-height: 46px;
-  border: none;
-  border-radius: 50px;
-  height: 46px;
-  width: 370px;
-  padding: 0 25px;
-}
-.form-control,
-.form-control:focus {
-  box-shadow: none;
-}
-
 .btn-search {
   border-radius: 50px;
   font-size: 15px;
@@ -59,9 +42,8 @@ footer {
   margin-top: 20px;
   text-align: center;
 }
-p,
-input,
-select,
+
+
 button {
   font-family: "Muli", sans-serif;
   color: #666;
@@ -81,7 +63,7 @@ h6 {
 }
 
 p {
-  color: #333;
+  color: #666;
 }
 
 h1 {
@@ -122,25 +104,6 @@ a:hover {
   color: #5672f9;
 }
 
-
-
-textarea.form-control {
-  padding: 20px;
-}
-
-.overly {
-  position: relative;
-}
-
-.overly:before {
-  content: "";
-  background: rgba(0, 0, 0, 0.51);
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
 
 
 
@@ -317,11 +280,6 @@ textarea.form-control {
 
 
 
-form textarea {
-  height: 200px;
-}
-
-
 
 /* Blogs area */
 .blogs {
@@ -365,41 +323,5 @@ form textarea {
   width: 80%;
   margin: 0 auto;
 }
-input[type=text] {
-  padding: 15px;
-  margin: 20px 0;
-}
-textarea {
-  resize: none;
-  padding: 30px;
-  margin: 20px 0;
-
-}
-input[type=submit] {
-  padding: 10px;
-  margin: 10px 0;
-  border: none;
-}
-.blog-img-button {
-  padding: 15px;
-  width: 30%;
-  border: none;
-}
-
-.view-blog {
-  width: 80%;
-  margin: 0 auto;
-}
-.view-blog h1 {
-  margin-top: 200px;
-  margin-bottom: 50px;
-}
-.view-blog img {
-  max-width: 50%;
-  height: auto;
-  margin-left: 250px;
-  margin-top: 30px;
-}
-
 
 
