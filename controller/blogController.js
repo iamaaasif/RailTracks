@@ -17,7 +17,7 @@ async function getBlogs(req, res, next) {
   const blogs = await Blog.find()
     .select("url title text thumbnail createdAt author_name")
     .sort({ createdAt: -1 });
-  console.log(blogs);
+  // console.log(blogs);
   if (blogs && blogs[0]._id) {
     res.json(blogs);
   } else {
@@ -30,7 +30,7 @@ async function getBlog(req, res, next) {
   const url = req.params.blog_url;
   const blog = await Blog.findOne({ url: url });
   if (blog && blog._id) {
-    console.log(blog.title);
+    // console.log(blog.title);
     res.json({
       blog_title: blog.title,
       blog_author: blog.author_name,
@@ -46,10 +46,10 @@ async function getBlog(req, res, next) {
 async function getOwnBlogs(req, res, next) {
   const username = req.params.username;
   console.log(username);
-  const blogs = await Blog.find({ username: username })
+  const blogs = await Blog.find({ author_username: username })
     .select("url title text thumbnail createdAt author_name")
     .sort({ createdAt: -1 });
-  console.log(blogs);
+  // console.log(blogs);
   if (blogs && blogs[0]._id) {
     res.json(blogs);
   } else {
@@ -93,8 +93,8 @@ async function createBlog(req, res, next) {
     }
 
     const result = await newBlog.save();
-    console.log("This is result: ");
-    console.log(result);
+    // console.log("This is result: ");
+    // console.log(result);
     res.redirect("/blog");
   } catch (err) {
     console.log("Image deleted.");

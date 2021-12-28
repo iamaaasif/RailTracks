@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html class="" lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title><%= loggedInUser.firstName %> <%= loggedInUser.lastName %> - <%= title %>  </title>
+
+
+
+
+
+
+
+
+    <meta name="theme-color" content="#ffffff">
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <!-- <link rel="stylesheet" href="https://rsms.me/inter/inter.css"> -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.mentorcruise.com/css/bulma.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.mentorcruise.com/css/app.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.mentorcruise.com/css/tailwind.min.css">
+
+    <!-- Font Google -->
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&amp;display=swap" rel="stylesheet">
+
+    <!-- CSS Plugins -->
+    <link rel="stylesheet" href="https://noonpost.netlify.app/html/template/assets/css/all.css">
+    <link rel="stylesheet" href="https://noonpost.netlify.app/html/template/assets/css/elegant-font-icons.css">
+    <link rel="stylesheet" href="https://noonpost.netlify.app/html/template/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://noonpost.netlify.app/html/template/assets/css/owl.carousel.css">
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> -->
+    <!-- main style -->
+    <link rel="stylesheet" href="https://noonpost.netlify.app/html/template/assets/css/style.css">
+    <link rel="stylesheet" href="https://noonpost.netlify.app/html/template/assets/css/custom.css">
+    <link href="/css/style.css" rel="stylesheet">
+    <style>
+
+      .switch {
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+        position: relative;
+      }
+
+      .toggle-thumb {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #475569;
+        border-radius: 40px;
+        cursor: pointer;
+      }
+      .toggle-thumb:before {
+        content: "";
+        height: 26px;
+        width: 26px;
+        position: absolute;
+        left: 4px;
+        bottom: 4px;
+        border-radius: 50%;
+        background-color: #E2E8F0;
+        transition: .4s all ease;
+      }
+
+      .checkbox {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .checkbox:checked + .toggle-thumb:before {
+        transform: translateX(26px);
+      }
+
+
+
+    </style>
+
+    <script>
+        //  window.location.replace("/");
+        function logout() {
+            fetch("/", {
+                method: "DELETE",
+            });
+            setTimeout(() => {
+                window.location.replace("/");
+            }, 1000);
+        }
+    </script>
+
+</head>
+<body>
+
+
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+        <!--logo-->
+        <div class="logo">
+            <a href="/">
+                <img src="/images/logo.png" alt="" class="logo-dark">
+                <img src="/images/logo.png" alt="" class="logo-white">
+            </a>
+        </div>
+        <!--/-->
+    
+        <!--navbar-collapse-->
+        <div class="collapse navbar-collapse" id="main_nav">
+            <ul class="navbar-nav ml-auto mr-auto">
+                <% if (loggedInUser && loggedInUser.email) { %>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="/"> Home </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link  dropdown-toggle" href="/profile" data-toggle="dropdown"> Profile </a>
+                    <ul class="dropdown-menu fade-up">
+                        <li>
+                            <a class="dropdown-item " href="/profile/<%= loggedInUser.username %> "> My Profile </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="/profile/editProfile/<%= loggedInUser.username %> ">Edit Profile</a>
+                        </li>
+                       
+                       
+                        
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link  dropdown-toggle" href="/blog" data-toggle="dropdown"> Blogs </a>
+                  <ul class="dropdown-menu fade-up">
+                      <li>
+                          <a class="dropdown-item " href="/blog/createBlog/"> Create new Blog</a>
+                      </li>
+                      <li>
+                          <a class="dropdown-item" href="/blog">All Blogs</a>
+                      </li>
+    
+                      <li>
+                        <a class="dropdown-item" href="/blog/author/<%= loggedInUser.username %> ">My Blogs</a>
+                    </li>
+                     
+                     
+                      
+                  </ul>
+              </li>
+                <% } else { %>
+    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="/"> Home </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="/blog"> Blog </a>
+                  </li>
+                <% } %>
+    
+    
+    
+            </ul>
+        </div>
+        <!--/-->
+    
+        <!--navbar-right-->
+        <div class="navbar-right ml-auto">
+            <% if (loggedInUser && loggedInUser.email) { %>
+    
+            <a class="nav-link text-white add-button" href="#">Find Mentor</a>
+    
+            
+                <a class="nav-link login-button" onclick="logout()"> Log Out </a>
+    
+            
+            <% } else { %>
+                <a class="nav-link login-button" href="/login"
+                >Offer Mentorship</a
+              >
+                <a class="nav-link text-white add-button" href="/">Find Mentor</a>
+          
+                <% } %>
+    
+    
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </div>
+    </nav>

@@ -43,16 +43,10 @@ const signUpValidators = [
         throw createError(err.message);
       }
     }),
-  check("password")
-    .isStrongPassword()
-    .withMessage(
-      "Password must be at least 8 characters long & should contain at least 1 lowercase, 1 uppercase, 1 number & 1 symbol"
-    ),
+  check("password").isLength({ min: 3 }).withMessage("pasword is required"),
   check("confirmPassword")
-    .isStrongPassword()
-    .withMessage(
-      "Password must be at least 8 characters long & should contain at least 1 lowercase, 1 uppercase, 1 number & 1 symbol"
-    )
+    .isLength({ min: 3 })
+    .withMessage("pasword is required")
     .custom(async (confirmPassword, { req }) => {
       if (confirmPassword != req.body.password) {
         throw createError("Password and confirm password does not match!");

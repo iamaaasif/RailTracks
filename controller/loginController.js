@@ -47,6 +47,7 @@ async function login(req, res, next) {
 
         // set logged in users local identifiers
         res.locals.loggedInUser = userObject;
+        global.loggedInUser = userObject;
 
         res.redirect("/"); // after logged in , render home page
       } else {

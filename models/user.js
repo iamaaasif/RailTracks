@@ -24,6 +24,7 @@ const userSchema = mongoose.Schema(
     },
     profile_picture: {
       type: String,
+      default: "no-img.jpg",
     },
     status: {
       type: String,

@@ -4,6 +4,7 @@ const { body } = require("express-validator");
 
 // internal imports
 const User = require("../models/user");
+const Mentor = require("../models/mentor");
 
 function getRegistration(req, res, next) {
   res.render("register", {
@@ -23,6 +24,9 @@ async function userRegistration(req, res, next) {
   });
   try {
     const result = await newUser.save();
+
+    const newMentor = new Mentor({ username: req.body.username });
+    const mentorResult = await newMentor.save();
 
     res.render("login", {
       html: true,

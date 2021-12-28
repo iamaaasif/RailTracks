@@ -12,7 +12,7 @@ function getSearchResult(req, res, next) {
 // api
 async function searchResult(req, res, next) {
   const skill = req.query.skill;
-  console.log(skill);
+  // console.log(skill);
 
   try {
     let mentor_results = await Mentor.find({
@@ -34,7 +34,7 @@ async function searchResult(req, res, next) {
       results.push(mentor);
     }
 
-    console.log(results);
+    // console.log(results);
 
     if (results) {
       res.json(results);

@@ -42,7 +42,14 @@ const mentorSchema = mongoose.Schema(
     isAvailable: {
       type: Boolean,
       default: false,
-      required: true,
+    },
+    callsPerMonth: {
+      type: Number,
+      default: 12,
+    },
+    maximunResponseTime: {
+      type: Number,
+      default: 12,
     },
   },
   {
