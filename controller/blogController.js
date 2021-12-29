@@ -66,13 +66,14 @@ async function getBlog(req, res, next) {
 
 async function getOwnBlogs(req, res, next) {
   const username = req.params.username;
-  let blog = {};
+
   let blog_results = [];
   const blogs = await Blog.find({ author_username: username })
     .select("url title text thumbnail createdAt author_username")
     .sort({ createdAt: -1 });
   // console.log(blogs);
   for (let i = 0; i < blogs.length; i++) {
+    let blog = {};
     const username = blogs[i].author_username;
     blog.url = blogs[i].url;
     blog.title = blogs[i].title;

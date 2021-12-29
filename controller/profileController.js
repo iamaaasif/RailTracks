@@ -78,21 +78,22 @@ async function profile_data(req, res, next) {
 async function editProfile(req, res, next) {
   try {
     if (req.files) {
+      console.log(req.params.username);
       let res3 = await User.findOneAndUpdate(
-        { username: req.body.username },
+        { username: req.params.username },
+
         { profile_picture: req.files[0].filename },
         {
           new: true,
         }
       );
-      console.log(res3);
-      res.redirect("#");
-    }
-  } catch (err) {
-    console.log(err);
-  }
 
-  try {
+      console.log("fhkfhfhkfhjkfhjkfhsjkfhkhfujkhskhdukf");
+      console.log(res3);
+
+      res.redirect("/profile/" + req.params.username);
+    }
+
     if (req.body.firstName.length > 3 || req.body.lastName.length > 3) {
       let res2 = await User.findOneAndUpdate(
         { username: req.body.username },

@@ -11,8 +11,8 @@ function getSearchResult(req, res, next) {
 
 // api
 async function searchResult(req, res, next) {
-  const skill = req.query;
-  // console.log(skill);
+  const skill = req.query.skill;
+  console.log(skill);
 
   try {
     let mentor_results = await Mentor.find({
