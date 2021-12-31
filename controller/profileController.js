@@ -91,9 +91,9 @@ async function edit_profile_data(req, res, next) {
 async function editProfile(req, res, next) {
   try {
     if (req.files) {
-      console.log(req.params.username);
+      console.log(req.body.username);
       let res3 = await User.findOneAndUpdate(
-        { username: req.params.username },
+        { username: req.body.username },
 
         { profile_picture: req.files[0].filename },
         {
@@ -104,7 +104,7 @@ async function editProfile(req, res, next) {
       console.log("fhkfhfhkfhjkfhjkfhsjkfhkhfujkhskhdukf");
       console.log(res3);
 
-      res.redirect("/profile/" + req.params.username);
+      res.redirect("/profile/" + req.body.username);
     }
 
     if (req.body.firstName.length > 3 || req.body.lastName.length > 3) {
@@ -120,7 +120,7 @@ async function editProfile(req, res, next) {
       console.log(res2);
     }
 
-    res.redirect("/");
+    res.redirect("/profile/" + req.body.username);
   } catch (err) {
     console.log(err);
   }
@@ -171,7 +171,7 @@ async function editProfile(req, res, next) {
 
     console.log(res1);
 
-    res.redirect("/");
+    res.redirect("/profile/" + req.body.username);
   } catch (err) {
     console.log(err);
   }

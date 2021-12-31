@@ -12,14 +12,12 @@
      <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
      <!-- CSS Plugins -->
-     <link rel="stylesheet" href="https://noonpost.netlify.app/html/template/assets/css/all.css">
-     <link rel="stylesheet" href="https://noonpost.netlify.app/html/template/assets/css/elegant-font-icons.css">
-     <link rel="stylesheet" href="https://noonpost.netlify.app/html/template/assets/css/bootstrap.min.css">
-     <link rel="stylesheet" href="https://noonpost.netlify.app/html/template/assets/css/owl.carousel.css">
-     <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"> -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.3.1/css/all.css">
+     <link rel="stylesheet" href="/css/external/fontawesome.css">
+     <link rel="stylesheet" href="/plugins/bootstrap/css/bootstrap.min.css">
+     <link rel="stylesheet" href="/css/external/owl_carousel.css">
      <!-- main style -->
-     <link rel="stylesheet" href="https://noonpost.netlify.app/html/template/assets/css/style.css">
-     <link rel="stylesheet" href="https://noonpost.netlify.app/html/template/assets/css/custom.css">
+     <link rel="stylesheet" href="/css/external/style.css">
      <link href="/css/style.css" rel="stylesheet" />
  
      <script>
@@ -61,8 +59,8 @@
     <div class="collapse navbar-collapse" id="main_nav">
         <ul class="navbar-nav ml-auto mr-auto">
             <% if (loggedInUser && loggedInUser.email) { %>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="/"> Home </a>
+            <li class="nav-item">
+                <a class="nav-link " href="/"> Home </a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link  dropdown-toggle" href="/profile" data-toggle="dropdown"> Profile </a>
@@ -98,11 +96,11 @@
           </li>
             <% } else { %>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="/"> Home </a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/"> Home </a>
                 </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="/blog"> Blog </a>
+                <li class="nav-item">
+                  <a class="nav-link" href="/blog"> Blog </a>
               </li>
             <% } %>
 
