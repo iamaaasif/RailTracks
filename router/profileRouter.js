@@ -9,6 +9,7 @@ const {
   editProfile,
   profile_data,
   toogleHandler,
+  edit_profile_data,
 } = require("../controller/profileController");
 const decorateHtmlResponse = require("../middlewares/common/decorateHTMLResponse");
 const {
@@ -19,6 +20,7 @@ const {
 const imageUpload = require("../middlewares/users/profilePicUpload");
 
 router.get("/api/v1/profile/:username", profile_data);
+router.get("/api/v1/profile/edit/:username", edit_profile_data);
 
 router.get(
   "/:username",
@@ -46,6 +48,7 @@ router.post(
   imageUpload,
   editProfile
 );
+
 // router.get(
 //   "/editProfile/:username",
 //   decorateHtmlResponse("Edit Profile"),

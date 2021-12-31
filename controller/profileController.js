@@ -75,6 +75,19 @@ async function profile_data(req, res, next) {
   }
 }
 
+async function edit_profile_data(req, res, next) {
+  const username = req.params.username;
+  try {
+    const { firstName, lastName } = await User.findOne({
+      username: username,
+    });
+
+    res.json({ firstName, lastName });
+  } catch (err) {
+    res.json({});
+  }
+}
+
 async function editProfile(req, res, next) {
   try {
     if (req.files) {
@@ -207,4 +220,5 @@ module.exports = {
   editProfile,
   profile_data,
   toogleHandler,
+  edit_profile_data,
 };

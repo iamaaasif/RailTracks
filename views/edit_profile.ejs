@@ -146,6 +146,7 @@
 
 
     <body>
+      
         <div class="container" style="margin-top: 76px;">
         <div class="row flex-lg-nowrap">
 
@@ -169,7 +170,7 @@
                         </div>
                         <div class="col d-flex flex-column flex-sm-row justify-content-center mb-3", align-items-center>
                           <div class="text-center text-sm-left mb-2 mb-sm-0">
-                            <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap", style="text-align: center"><%= loggedInUser.firstName %> <%= loggedInUser.lastName %> </h4>
+                            <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap", style="text-align: center" id="profile_name"><%= loggedInUser.firstName %> <%= loggedInUser.lastName %>  </h4>
 
 
                             <div class="mt-2">
@@ -318,5 +319,24 @@
             </div>
           </footer>
 
+        
+          <script>
+            console.log("fjsfjijflifjljflfjlfjklf");
+             const url = window.location;
+            const path = window.location.pathname.split("/").pop();
+        
+            let url = "localhost:3000/profile/api/v1/profile/edit/"+path;
+            console.log(url);
+            async function getData(){
+            const response = await fetch(api_url);
+            const data = await response.json();
+    
+            console.log(data);
+    
+            document.getElementById("profile_name").innerText=data.firstName + ' '+ data.lastName;
+          
+          }
+          getData();
+          </script>
     </body>
 </html>
